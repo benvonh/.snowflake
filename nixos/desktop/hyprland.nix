@@ -12,7 +12,7 @@
 
   environment.systemPackages = with pkgs; [
     # Components
-    waybar wofi mako avizo 
+    waybar wofi mpvpaper mako avizo 
     swayidle swaylock-effects
 
     # Tools

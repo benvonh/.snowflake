@@ -80,7 +80,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      themes = "nord";
+      theme = "nord";
       editor.scrolloff = 8;
     };
   };

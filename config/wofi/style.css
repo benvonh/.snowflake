@@ -1,0 +1,48 @@
+@import ".config/wofi/nord.css";
+
+#window {
+    background-color: @dark0;
+    border: 2px solid @frost0;
+    border-radius: 16px;
+    margin: 0px;
+}
+
+#input {
+    background-color: @dark3;
+    border: none;
+    border-radius: 16px;
+    color: @light2;
+    margin: 8px;
+}
+
+#inner-box {
+    background-color: @dark0;
+    border: none;
+    border-radius: 16px;
+    margin: 8px;
+}
+
+#outer-box {
+    background-color: @dark0;
+    border: none;
+    margin: 8px;
+}
+
+#text {
+    border: none;
+    color: @light2;
+    margin: 8px;
+} 
+
+#entry:selected {
+    background-color: @dark3;
+    border-radius: 16px;
+    margin: 4px;
+    outline: none;
+}
+
+#entry:selected * {
+    background-color: @dark3;
+    border-radius: 16px;
+    outline: none;
+}
