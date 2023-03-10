@@ -21,11 +21,9 @@
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
         "i686-linux"
         "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
+        "aarch64-linux"
       ];
     in
     rec {
@@ -45,17 +43,15 @@
       # Your custom packages and modifications, exported as overlays
       #overlays = import ./overlays { inherit inputs; };
       overlays =
-        let pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
         in import ./overlays { inherit inputs pkgs; };
       # Reusable nixos modules you might want to export
       # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+      homeManagerModules = import ./modules/home;
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         zeph = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
@@ -66,15 +62,13 @@
         };
       };
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "ben@zeph" = home-manager.lib.homeManagerConfiguration {
+        ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main home-manager configuration file <
-            ./home-manager/home.nix
+            ./home/home.nix
           ];
         };
       };

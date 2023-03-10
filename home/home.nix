@@ -59,10 +59,6 @@
     userEmail = "benjaminvonsnarski@gmail.com";
   };
 
-  #programs.gh = {
-  #  enable = true;
-  #};
-
   programs.htop = {
     enable = true;
   };
@@ -103,7 +99,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = false;
-    #defaultKeymap = "emacs";
+    defaultKeymap = "emacs";
     dotDir = ".config/zsh";
     initExtraFirst = "source ~/.config/zsh/extra.zsh";
     history.share = false;
