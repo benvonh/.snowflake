@@ -1,6 +1,0 @@
-{ ... }:
-{
-  programs.htop = {
-    enable = true;
-  };
-}

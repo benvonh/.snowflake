@@ -2,9 +2,8 @@
 {
   imports = [
     ./shell
-    ./share
-    ./theme
-    ./service
+    ./terminal
+    ./graphical
     ./hyprland
   ];
 }

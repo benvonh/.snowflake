@@ -1,41 +1,34 @@
 # Snow
+
 A Nix flake configuration for NixOS and Home Manager. Appropriately named `snow` for its Nordic theme.
 
-## Install
----
-This guide will assume:
-- NixOS is installed and booted into; or
-- Nix is installed on another Linux distro.  
-
-### NixOS
----
-1. Clone repository
-```sh
-git clone https://github.com/benvonh/snow ~/snow
-cd ~/snow
-```
-
-2. Bootstrap nix shell
-```sh
-# v2.4+
-nix develop
-# legacy
-nix-shell
-```
-
-3. Add hardware config
-```sh
-nixos-generate-config --show-hardware-config > ~/snow/hardware/$HOST.nix
+## Structure
 
 ```
-
-4. 
-```SH
-# Build NixOS
-sudo nixos-rebuild switch --flake .#zeph
-home-manager switch --flake .#ben
+snow
+├── assets
+├── config
+├── desktop
+│  ├── hyprland
+│  ├── service
+│  ├── share
+│  ├── shell
+│  └── theme
+├── modules
+│  ├── home
+│  └── nixos
+├── overlays
+├── pkgs
+├── systems
+│  ├── base
+│  └── zeph
+└── users
+   ├── ben
+   └── dev
 ```
 
 ## Special Thanks To...
----
-Misterio77 for providing a [nix flake template](https://github.com/misterio77/nix-starter-configs) to the community. I was able to set this up in a few days thanks to his work.
+
+- [Misterio77](https://github.com/misterio77) for his NixOS and Home Manager [template](https://github.com/misterio77/nix-starter-configs)
+- [mitchellh](https://github.com/mitchellh) for inspiration from his [nixos-config](https://github.com/mitchellh/nixos-config)
+- [linuxmobile](https://github.com/linuxmobile) for showing his [Hyprland config](https://github.com/mitchellh/nixos-config) on [ChrisTitusTech](https://youtube.com/@ChrisTitusTech)'s stream

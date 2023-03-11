@@ -50,7 +50,7 @@
         extraInstallCommands = ''
           path=/boot/loader/entries
           entries=$(ls -x $path)
-          sed -i '2s/.*/version backup/' $path/$(echo $entries | awk '{print $1}')
+          sed -i '2s/.*/version Backup/' $path/$(echo $entries | awk '{print $1}')
           sed -i '2s/.*//' $path/$(echo $entries | awk '{print $2}')
         '';
       };
@@ -74,7 +74,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    vim git pciutils
+    vim
+    git
+    pciutils
+    pamixer
+    brightnessctl
   ];
 
   users.users = {
@@ -85,10 +89,22 @@
     };
   };
 
+  # Enable Hyprland
   programs.hyprland.enable = true;
-
-  # Swaylock password authentication bug
+  
+  # Swaylock authentication bug
   security.pam.services.swaylock = {};
+
+  # Recommended for pipewire
+  security.rtkit.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   services.openssh = {
     enable = false;

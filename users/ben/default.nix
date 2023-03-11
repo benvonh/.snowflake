@@ -4,6 +4,7 @@
     ../../desktop
   ];
 
+  # FIXME: Error due to Home Manager used as NixOS module
   # nixpkgs = {
   #   overlays = [
   #     outputs.overlays.additions
@@ -17,32 +18,11 @@
   #   };
   # };
 
-  home = {
-    username = "ben";
-    homeDirectory = "/home/ben";
-  };
+  home.username = "ben";
+  home.homeDirectory = "/home/ben";
 
+	xdg.dataHome = /home/ben/.local;
   programs.home-manager.enable = true;
-
-  home.packages = with pkgs; [
-    # Tools
-    fd ripgrep unzip tldr 
-
-    # Applications
-    nvtop tty-clock
-
-    # Rice
-    pfetch pipes-rs
-  ];
-
-  # services.cbatticon = {
-  #   enable = true;
-  #   lowLevelPercent = 20;
-  #   criticalLevelPercent = 10;
-  #   commandCriticalLevel = "notify-send Battery 'Critically low...'";
-  #   iconType = "standard";
-  #   updateIntervalSeconds = 10;
-  # };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
