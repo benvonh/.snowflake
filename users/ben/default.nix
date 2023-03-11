@@ -29,7 +29,7 @@
     fd ripgrep unzip tldr 
 
     # Applications
-    gh nvtop tty-clock
+    nvtop tty-clock
 
     # Rice
     pfetch pipes-rs

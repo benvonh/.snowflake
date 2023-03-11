@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = [ pkgs.swaylock ];
+  home.packages = [ pkgs.swaylock-effects ];
 
   xdg.configFile.swaylock = {
     source = ../../config/swaylock;

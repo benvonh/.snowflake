@@ -51,7 +51,7 @@
           path=/boot/loader/entries
           entries=$(ls -x $path)
           sed -i '2s/.*/version backup/' $path/$(echo $entries | awk '{print $1}')
-          sed -i '2s/.*/version latest/' $path/$(echo $entries | awk '{print $2}')
+          sed -i '2s/.*//' $path/$(echo $entries | awk '{print $2}')
         '';
       };
       efi.canTouchEfiVariables = true;

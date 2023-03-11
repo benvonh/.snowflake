@@ -4,7 +4,7 @@
     ./shell
     ./share
     ./theme
-    ./services
+    ./service
     ./hyprland
   ];
 }
