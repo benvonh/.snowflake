@@ -1,4 +1,4 @@
-# Thanks to wegnak/nur-packages
+# From wegnak/nur-packages
 { lib
 , stdenv
 , fetchFromGitHub

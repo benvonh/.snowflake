@@ -1,35 +1,21 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
+    ./hardware.nix
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-laptop
     inputs.hardware.nixosModules.common-pc-laptop-ssd
-
-    ./desktop
-
-    ./hardware-configuration.nix
+    inputs.hyprland.nixosModules.default
+    # FIXME: Under maintenance
+    #../base
   ];
 
   nixpkgs = {
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     config = {
       allowUnfree = true;
@@ -77,7 +63,7 @@
 
   networking.hostName = "zeph";
   networking.networkmanager.enable = true;
-
+  
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -86,7 +72,7 @@
       fonts = [ "FiraCode" ];
     })
   ];
-  
+
   environment.systemPackages = with pkgs; [
     vim git pciutils
   ];
@@ -98,6 +84,11 @@
       extraGroups = [ "wheel" "networkmanager" ];
     };
   };
+
+  programs.hyprland.enable = true;
+
+  # Swaylock password authentication bug
+  security.pam.services.swaylock = {};
 
   services.openssh = {
     enable = false;
