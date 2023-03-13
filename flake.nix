@@ -10,9 +10,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Others
+    # More flakes
     hardware.url = "github:nixos/nixos-hardware";
     hyprland.url = "github:hyprwm/hyprland";
+    # hyprpaper.url = "github:hyprwm/hyprpaper";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -50,21 +51,10 @@
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home;
 
-      # TODO: Automate configurations with custom lib function
-      # https://github.com/mitchellh/nixos-config/blob/main/flake.nix
-
       nixosConfigurations = {
         zeph = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./systems/zeph
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.ben = import ./users/ben;
-              home-manager.extraSpecialArgs = { inherit inputs outputs; };
-            }
-          ];
+          modules = [ ./systems/zeph ];
         };
       };
 
@@ -72,7 +62,12 @@
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./users/ben ];
+          modules = [ ./profiles/ben ];
+        };
+        dev = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./profiles/dev ];
         };
       };
     };

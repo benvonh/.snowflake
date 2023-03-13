@@ -2,40 +2,15 @@
 {
   imports = [
     ./hardware.nix
+    
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-laptop
     inputs.hardware.nixosModules.common-pc-laptop-ssd
-    inputs.hyprland.nixosModules.default
-    # FIXME: Under maintenance
-    #../base
+
+    ../common.nix
+    ../hyprland.nix
   ];
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  nix = {
-    # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
-    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
-
-    settings = {
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
-    };
-  };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -50,61 +25,15 @@
         extraInstallCommands = ''
           path=/boot/loader/entries
           entries=$(ls -x $path)
-          sed -i '2s/.*/version Backup/' $path/$(echo $entries | awk '{print $1}')
           sed -i '2s/.*//' $path/$(echo $entries | awk '{print $2}')
+          sed -i '2s/.*/version Backup/' $path/$(echo $entries | awk '{print $1}')
         '';
       };
       efi.canTouchEfiVariables = true;
     };
   };
 
-  i18n.defaultLocale = "en_AU.UTF-8";
-  time.timeZone = "Australia/Brisbane";
-
   networking.hostName = "zeph";
-  networking.networkmanager.enable = true;
-  
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    (nerdfonts.override {
-      fonts = [ "FiraCode" ];
-    })
-  ];
-
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-    pciutils
-    pamixer
-    brightnessctl
-  ];
-
-  users.users = {
-    ben = {
-      shell = pkgs.zsh;
-      isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
-    };
-  };
-
-  # Enable Hyprland
-  programs.hyprland.enable = true;
-  
-  # Swaylock authentication bug
-  security.pam.services.swaylock = {};
-
-  # Recommended for pipewire
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   services.openssh = {
     enable = false;

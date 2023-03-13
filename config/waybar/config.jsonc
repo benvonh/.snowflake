@@ -38,10 +38,11 @@
     },
     "network": {
         "format": "{ifname}",
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-wifi": " {bandwidthDownBytes} ({signalStrength}%)",
+        "format-ethernet": " {bandwidthDownBytes} ({ipaddr}/{cidr})",
         "format-disconnected": " Disconnected",
-        "interface": "wlp5s0"
+        "interface": "wlp5s0",
+        "interval": 5
     },
 
     "wlr/workspaces": {
