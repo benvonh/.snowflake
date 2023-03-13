@@ -1,4 +1,4 @@
-{ config, ... }:
+{ self, config, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -16,6 +16,9 @@
     initExtraFirst = ''
       source ~/.config/zsh/init.zsh
     '';
+    shellAliases = {
+      snow = "~/.config/zsh/snow.bash ~/snow $1 $2";
+    };
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;

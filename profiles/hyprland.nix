@@ -12,7 +12,7 @@
       enable = true;
       executable = false;
       recursive = true;
-      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/assets/wallpaper";
+      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/snow/assets/wallpaper";
       target = "wallpaper";
     };
   };

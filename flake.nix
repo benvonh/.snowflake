@@ -10,10 +10,14 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # More flakes
+    # Hardware
     hardware.url = "github:nixos/nixos-hardware";
+
+    # Hyprwm
     hyprland.url = "github:hyprwm/hyprland";
-    # hyprpaper.url = "github:hyprwm/hyprpaper";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpaper.inputs.nixpkgs.follows = "nixpkgs";    
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -61,12 +65,12 @@
       homeConfigurations = {
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = { inherit self inputs outputs; };
           modules = [ ./profiles/ben ];
         };
         dev = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          extraSpecialArgs = { inherit self inputs outputs; };
           modules = [ ./profiles/dev ];
         };
       };

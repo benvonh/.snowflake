@@ -1,14 +1,19 @@
 { inputs, outputs, pkgs, ... }:
 {
-  imports = [ inputs.hyprland.nixosModules.default ];
+  imports = [
+    inputs.hyprland.nixosModules.default
+  ];
 
-  # nixpkgs.overlays = [ inputs.hyprpaper.overlays.default ];
+  nixpkgs.overlays = [
+    # inputs.hyprpaper.overlays.default
+  ];
 
   environment.systemPackages = with pkgs; [
     # Components
     waybar
     wofi
-    hyprpaper
+    # inputs.hyprpaper.packages.${system}.default
+    # hyprpaper
     mpvpaper
     swaylock-effects
 

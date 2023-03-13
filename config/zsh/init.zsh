@@ -1,4 +1,4 @@
-# Flex...I mean flakes
+# Flex! ...I mean flakes
 neofetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -44,46 +44,3 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':autocomplete:*' widget-style menu-select
 zstyle ':autocomplete:*' min-delay 0.2
 source ~/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# Flake config helper functions
-flake() {
-    local path=$(fd snow $HOME)
-
-    if (($(echo "$path" | wc -l) != 1)); then
-        echo 'More than one directory named `snow` found'
-    fi
-
-    case "$1" in
-        'build' )
-            sudo nixos-rebuild build --flake "$path.#$2"
-            ;;
-        'test' )
-            sudo nixos-rebuild test --flake "$path.#$2"
-            ;;
-        'switch' )
-            sudo nixos-rebuild switch --flake "$path.#$2"
-            ;;
-        'update' )
-            cd $path
-            if [[ $# -eq 1 ]]; then
-                nix flake update
-            else
-                nix flake lock --update-input $2
-            fi
-            cd -
-            ;;
-        'clean' )
-            sudo nix-collect-garbage
-            ;;
-        'edit' )
-            if [[ $# -eq 1 ]]; then
-                $EDITOR $path
-            else
-                $EDITOR $path/config/$2
-            fi
-            ;;
-        * )
-            echo "Invalid command: $1"
-            ;;
-    esac
-}
