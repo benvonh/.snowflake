@@ -3,8 +3,8 @@
   gtk = with pkgs; {
     enable = true;
     cursorTheme = {
-      package = numix-cursor-theme;
-      name = "Numix-Cursor-Light";
+      package = nordzy-cursor-theme;
+      name = "Nordzy-white-cursors";
       size = 24;
     };
     iconTheme = {
@@ -13,10 +13,10 @@
     };
     theme = {
       package = nordic;
-      name = "Nordic";
+      name = "Nordic-darker";
     };
     font = {
-      name = "FiraCode Nerd Font";
+      name = "Noto Sans";
       size = 10;
     };
   };

@@ -78,26 +78,6 @@
         "type": "github"
       }
     },
-    "hyprpaper": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1677282271,
-        "narHash": "sha256-wNooEHZpKMJN2jj2qPa1jRhi6f5q1yTYCxQcXEJ32eM=",
-        "owner": "hyprwm",
-        "repo": "hyprpaper",
-        "rev": "83867464c523c3ac2f7ce53d2c4b8d4f9b7551cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "hyprpaper",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1678654296,
@@ -151,7 +131,6 @@
         "hardware": "hardware",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprpaper": "hyprpaper",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

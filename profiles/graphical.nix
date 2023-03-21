@@ -2,10 +2,12 @@
 {
   home.packages = with pkgs; [
     google-chrome
-    tor
-    pcmanfm
+    tor-browser-bundle-bin
+    xfce.thunar
     vscode
-    virt-manager
+    mpv
+    vlc
+    qimgv
   ];
 
   programs.kitty = {

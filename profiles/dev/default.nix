@@ -1,12 +1,9 @@
-# TODO: Set up
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
     ../common.nix
     ../terminal.nix
-    ../terminal-rice.nix
-    ../graphical.nix
-    ../zsh.nix
+    ../shell.nix
   ];
 
   home = {
@@ -14,4 +11,7 @@
     homeDirectory = "/home/ben";
     stateVersion = "22.11";
   };
+  
+  xdg.dataHome = /home/ben/.local;
+  xdg.configHome = /home/ben/.config;
 }

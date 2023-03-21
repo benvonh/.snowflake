@@ -6,12 +6,11 @@
     font-family: FiraCode Nerd Font;
     font-size: 14px;
     font-weight: bold;
-    min-height: 0;
 }
 
 /* Transparent bar */
 window#waybar {
-    background: rgba(46, 52, 64, 0);
+    background: rgba(46, 52, 64, 0.85);
 }
 
 /* Tooltip */
@@ -33,27 +32,9 @@ tooltip label {
 #battery,
 #pulseaudio,
 #clock {
-    background: @dark0;
+    background: 0x00000000;
     color: @frost0;
-    margin: 8px 0px 0px 0px;
-    padding: 4px 8px 4px 8px;
-}
-
-/* Curved left corners */
-#cpu, #tray, #battery {
-    border-radius: 8px 0px 0px 8px;
-    margin-left: 8px;
-}
-
-/* Curved middle */
-#workspaces, #window {
-    border-radius: 8px 8px 8px 8px;
-}
-
-/* Curved right corners */
-#network, #clock {
-    border-radius: 0px 8px 8px 0px;
-    margin-right: 8px;
+    padding: 8px;
 }
 
 /* Network colours */
@@ -70,7 +51,7 @@ tooltip label {
     color: @frost0;
 }
 #workspaces button.urgent {
-    color: @red;
+    color: @yellow;
 }
 #workspaces button:hover {
     color: @frost3;

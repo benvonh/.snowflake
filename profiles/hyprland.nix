@@ -1,5 +1,9 @@
 { config, ... }:
 {
+  programs.zsh.profileExtra = ''
+      [[ $(tty) == /dev/tty1 ]] && exec Hyprland
+  '';
+
   xdg.dataFile = with config.lib.file; {
     audio = {
       enable = true;

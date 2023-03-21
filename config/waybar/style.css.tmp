@@ -1,0 +1,93 @@
+@import "nord.css";
+
+/* Global */
+* {
+    border: none;
+    font-family: FiraCode Nerd Font;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+/* Transparent bar */
+window#waybar {
+    background: rgba(46, 52, 64, 0);
+}
+
+/* Tooltip */
+tooltip {
+    background: @dark0;
+}
+tooltip label {
+    color: @frost0;
+}
+
+/* Common */
+#cpu,
+#memory,
+#disk,
+#network,
+#workspaces,
+#window,
+#tray,
+#battery,
+#pulseaudio,
+#clock {
+    background: @dark0;
+    color: @frost0;
+    margin: 8px 0px 0px 0px;
+    padding: 4px 8px 4px 8px;
+}
+
+/* Curved left corners */
+#cpu, #tray, #battery {
+    border-radius: 8px 0px 0px 8px;
+    margin-left: 8px;
+}
+
+/* Curved middle */
+#workspaces, #window {
+    border-radius: 8px 8px 8px 8px;
+}
+
+/* Curved right corners */
+#network, #clock {
+    border-radius: 0px 8px 8px 0px;
+    margin-right: 8px;
+}
+
+/* Network colours */
+#network.disabled,
+#network.disconnected {
+    color: @red;
+}
+
+/* Workspaces */
+#workspaces button {
+    color: @dark3;
+}
+#workspaces button.active {
+    color: @frost0;
+}
+#workspaces button.urgent {
+    color: @red;
+}
+#workspaces button:hover {
+    color: @frost3;
+}
+
+/* Battery colours */
+#battery.warning {
+    color: @yellow;
+}
+#battery.critical {
+    color: @red;
+}
+
+/* Audio colours */
+#pulseaudio.muted {
+    color: @red;
+}
+#pulseaudio.source-muted {
+    color: @red;
+}

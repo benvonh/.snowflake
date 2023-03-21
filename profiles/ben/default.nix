@@ -5,9 +5,8 @@
     ../hyprland.nix
     ../graphical.nix
     ../terminal.nix
-    ../terminal-rice.nix
+    ../shell.nix
     ../gtk.nix
-    ../zsh.nix
   ];
 
   home = {

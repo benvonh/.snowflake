@@ -27,7 +27,8 @@
   };
 
   i18n.defaultLocale = "en_AU.UTF-8";
-  time.timeZone = "Australia/Brisbane";
+  #time.timeZone = "Australia/Brisbane";
+  time.timeZone = "Europe/Berlin";
   networking.networkmanager.enable = true;
 
   fonts.fonts = with pkgs; [
@@ -45,13 +46,17 @@
     pciutils
     pamixer
     brightnessctl
+    virt-manager
   ];
 
   users.users = {
     ben = {
       shell = pkgs.zsh;
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
     };
   };
+
+  programs.dconf.enable = true;
+  virtualisation.libvirtd.enable = true;
 }

@@ -6,12 +6,21 @@
     ripgrep
     unzip
     tldr
+    nodejs
+    cargo
 
     # Apps
     ranger
     neovim
     nvtop
   ];
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+    git = true;
+    icons = true;
+  };
 
   programs.bat = {
     enable = true;
@@ -21,6 +30,10 @@
     extraPackages = with pkgs.bat-extras; [
       batdiff batman batgrep batwatch
     ];
+  };
+
+  programs.htop = {
+    enable = true;
   };
 
   programs.btop = {
@@ -33,11 +46,10 @@
     };
   };
 
-  programs.exa = {
+  programs.git = {
     enable = true;
-    enableAliases = true;
-    git = true;
-    icons = true;
+    userName = "benvonh";
+    userEmail = "benjaminvonsnarski@gmail.com";
   };
 
   programs.gh = {
@@ -48,22 +60,12 @@
     };
   };
 
-  programs.git = {
-    enable = true;
-    userName = "benvonh";
-    userEmail = "benjaminvonsnarski@gmail.com";
-  };
-
   programs.helix = {
     enable = true;
     settings = {
       theme = "nord";
       editor.scrolloff = 8;
     };
-  };
-
-  programs.htop = {
-    enable = true;
   };
 
   programs.taskwarrior = {
