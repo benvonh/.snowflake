@@ -20,6 +20,7 @@
     wlr-randr
     libnotify
     sox  
+    xdg-utils
   ];
 
   programs.hyprland.enable = true;

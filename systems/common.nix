@@ -30,6 +30,7 @@
   #time.timeZone = "Australia/Brisbane";
   time.timeZone = "Europe/Berlin";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
 
   fonts.fonts = with pkgs; [
     noto-fonts
@@ -47,6 +48,7 @@
     pamixer
     brightnessctl
     virt-manager
+    iptables
   ];
 
   users.users = {

@@ -3,29 +3,34 @@
 #window {
     background-color: @dark0;
     border: 2px solid @frost0;
-    border-radius: 16px;
-    margin: 0px;
+    border-radius: 0px;
+    font-family: FiraCode Nerd Font;
+    font-size: 14px;
+    margin: 9px;
+    padding: 9px;
 }
 
 #input {
     background-color: @dark3;
     border: none;
-    border-radius: 16px;
+    border-radius: 8px;
     color: @light2;
+    padding: 8px;
     margin: 8px;
 }
 
 #inner-box {
     background-color: @dark0;
     border: none;
-    border-radius: 16px;
-    margin: 8px;
+    border-radius: 8px;
+    padding: 0px;
+    margin: 0px;
 }
 
 #outer-box {
     background-color: @dark0;
     border: none;
-    margin: 8px;
+    margin: 0px;
 }
 
 #text {
@@ -36,13 +41,14 @@
 
 #entry:selected {
     background-color: @dark3;
-    border-radius: 16px;
-    margin: 4px;
+    border-radius: 8px;
+    margin: 2px;
     outline: none;
 }
 
 #entry:selected * {
     background-color: @dark3;
-    border-radius: 16px;
+    border-radius: 8px;
+    margin: 2px;
     outline: none;
 }

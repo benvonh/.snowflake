@@ -8,6 +8,7 @@
     mpv
     vlc
     qimgv
+    xdg-utils
   ];
 
   programs.kitty = {

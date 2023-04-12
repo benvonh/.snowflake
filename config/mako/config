@@ -5,7 +5,7 @@ on-button-left=dismiss
 on-button-middle=none
 on-button-right=dismiss-group
 on-touch=none
-on-notify=exec play -q ~/.config/audio/mixkit-gaming-lock-2848.wav
+on-notify=exec play -q ~/.local/audio/mixkit-notify-retro.wav
 
 font=FiraCode Nerd Font 12
 background-color=#2E3440
@@ -15,9 +15,9 @@ height=100
 outer-margin=8
 margin=8
 padding=4
-border-size=0
+border-size=2
 border-color=#4C566A
-border-radius=16
+border-radius=8
 progress-color=over #8FBCBB
 
 icons=1
@@ -35,7 +35,7 @@ ignore-timeout=0
 max-visible=5
 #output=
 layer=overlay
-anchor=top-center
+anchor=bottom-center
 
 [urgency=low]
 border-color=#A3BE8C

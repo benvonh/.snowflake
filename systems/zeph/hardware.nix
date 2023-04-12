@@ -14,11 +14,9 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1953c6ff-9933-4628-96eb-87fe39397277";
+    { device = "/dev/disk/by-uuid/18389103-1fb5-4022-afe6-3735705015b7";
       fsType = "ext4";
     };
-
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/eb324212-3178-4345-8b6b-71811ed43d4a";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/8225-198F";
@@ -32,6 +30,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp7s0f4u1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
