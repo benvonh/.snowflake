@@ -51,6 +51,10 @@ remap('n', '<c-right>', '<cmd>vertical resize +2<cr>')
 -- don't cut with paste
 remap('v', 'p', '"_dp')
 
+-- copy to clipboard
+remap('v', 'yc', '"+y')
+remap('v', 'Yc', '"+yy')
+
 -- stay indent
 remap('v', '<', '<gv')
 remap('v', '>', '>gv')
