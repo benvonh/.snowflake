@@ -6,6 +6,9 @@
     ripgrep
     unzip
     tldr
+    nmap
+
+    # Meta
     nodejs
     cargo
 

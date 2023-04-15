@@ -1,6 +1,11 @@
 { config, ... }:
 {
   programs.zsh.profileExtra = ''
+      if type libvirtd &> /dev/null;
+      then
+        virsh net-start default > /dev/null
+      fi
+
       [[ $(tty) == /dev/tty1 ]] && exec Hyprland
   '';
 

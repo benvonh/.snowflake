@@ -30,7 +30,7 @@
   #time.timeZone = "Australia/Brisbane";
   time.timeZone = "Europe/Berlin";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   fonts.fonts = with pkgs; [
     noto-fonts

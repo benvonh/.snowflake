@@ -7,11 +7,11 @@
 }
 
 window#waybar {
-    background: rgba(46, 52, 64, 0.85);
+    background: @dark1;
 }
 
 tooltip {
-    background: @dark0;
+    background: @dark1;
     border-color: @frost0;
     border-style: solid;
     border-width: 2px;
@@ -31,8 +31,9 @@ tooltip label {
 #battery,
 #pulseaudio,
 #clock {
+    background: @dark1;
     color: @frost0;
-    padding: 4px 8px;
+    padding: 4px 16px;
 }
 
 #network.disabled,

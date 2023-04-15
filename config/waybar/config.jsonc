@@ -1,6 +1,6 @@
 {
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "mod": "dock",
     "exclusive": true,
     "passtrough": false,
@@ -25,20 +25,24 @@
     ],
 
     "cpu": {
-        "format": " {avg_frequency}Ghz ({usage}%)",
+        //"format": " {avg_frequency}Ghz ({usage}%)",
+        "format": " {avg_frequency}Ghz",
         "interval": 5
     },
     "memory": {
-        "format": " {used:0.1f}G ({percentage}%)",
+        //"format": " {used:0.1f}G ({percentage}%)",
+        "format": " {used:0.1f}G",
         "interval": 5
     },
     "disk": {
-        "format": " {used} ({percentage_used}%)",
+        //"format": " {used} ({percentage_used}%)",
+        "format": " {used}",
         "interval": 60
     },
     "network": {
         "format": "{ifname}",
-        "format-wifi": " {bandwidthDownBytes} ({signalStrength}%)",
+        //"format-wifi": " {bandwidthDownBytes} ({signalStrength}%)",
+        "format-wifi": " {bandwidthDownBytes}",
         "format-ethernet": " {bandwidthDownBytes} ({ipaddr}/{cidr})",
         "format-disconnected": " Disconnected",
         "interface": "wlp5s0",

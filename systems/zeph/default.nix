@@ -22,12 +22,6 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 2;
-        extraInstallCommands = ''
-          path=/boot/loader/entries
-          entries=$(ls -x $path)
-          sed -i '2s/.*//' $path/$(echo $entries | awk '{print $2}')
-          sed -i '2s/.*/version Backup/' $path/$(echo $entries | awk '{print $1}')
-        '';
       };
       efi.canTouchEfiVariables = true;
     };
