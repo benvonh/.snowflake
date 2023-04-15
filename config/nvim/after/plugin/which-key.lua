@@ -18,10 +18,10 @@ wk.register({
     ['<leader>'] = {
         z = {
             name = '+Neovim',
-            c = { '<cmd>qa<cr>',             'Close neovim' },
-            a = { '<cmd>qa!<cr>',            'Abandon neovim' },
-            x = { '<cmd>wa<cr>',             'Save all in neovim' },
-            z = { '<cmd>wa<cr> <cmd>qa<cr>', 'Save and quit neovim' },
+            x = { '<cmd>wa<cr>', 'Save all in neovim' },
+            c = { '<cmd>NvimTreeClose<cr> <cmd>qa<cr>', 'Close neovim' },
+            a = { '<cmd>NvimTreeClose<cr> <cmd>qa!<cr>', 'Abandon neovim' },
+            z = { '<cmd>NvimTreeClose<cr> <cmd>wa<cr> <cmd>qa<cr>', 'Save and quit neovim' },
         },
     },
 })

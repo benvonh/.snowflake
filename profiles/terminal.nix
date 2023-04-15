@@ -63,6 +63,67 @@
     };
   };
 
+  programs.vim = {
+    enable = true;
+    extraConfig = ''
+      ;------------
+      ;-- INSERT --
+      ;------------
+
+      ; exit insert mode
+      inoremap <c-c> <esc>
+
+      ;------------
+      ;-- NORMAL --
+      ;------------
+
+      ; centre next search
+      nnoremap n nzz
+      nnoremap N Nzz
+
+      ; switch buffers
+      nnoremap L <cmd>bnext<cr>
+      nnoremap H <cmd>bprev<cr>
+
+      ; split window
+      nnoremap <c-s> <cmd>split<cr>
+      nnoremap <c-x> <cmd>vsplit<cr>
+
+      ; move between panes
+      nnoremap <c-h> <c-w>h
+      nnoremap <c-j> <c-w>j
+      nnoremap <c-k> <c-w>k
+      nnoremap <c-l> <c-w>l
+
+      ; move panes
+      nnoremap <a-h> <c-w>H
+      nnoremap <a-j> <c-w>J
+      nnoremap <a-k> <c-w>K
+      nnoremap <a-l> <c-w>L
+
+      ; resize panes
+      nnoremap <c-up>    <cmd>resize -2<cr>
+      nnoremap <c-down>  <cmd>resize +2<cr>
+      nnoremap <c-left>  <cmd>vertical resize -2<cr>
+      nnoremap <c-right> <cmd>vertical resize +2<cr>
+
+      ;------------
+      ;-- VISUAL --
+      ;------------
+
+      ; dont cut with paste
+      vnoremap p "_dp
+
+      ; stay indent
+      vnoremap < <gv
+      vnoremap > >gv
+
+      ; move lines
+      vnoremap J :m \>+1<cr>gv=gv
+      vnoremap K :m \<-2<cr>gv=gv
+    '';
+  };
+
   programs.helix = {
     enable = true;
     settings = {
