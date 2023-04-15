@@ -1,44 +1,36 @@
 # Snow
 
-A Nix flake configuration for NixOS and Home Manager. Appropriately named `snow` for its Nordic theme.
+A Nix flake configuration for NixOS and Home Manager. Named `snow` for its Nordic theme.
 
-Structure
+Contents
 ---
-```
-snow
-├── assets
-├── config
-├── desktop
-│  ├── hyprland
-│  ├── service
-│  ├── share
-│  ├── shell
-│  └── theme
-├── modules
-│  ├── home
-│  └── nixos
-├── overlays
-├── pkgs
-├── systems
-│  ├── base
-│  └── zeph
-└── users
-   ├── ben
-   └── dev
-```
+*Systems (NixOS)*
+- Laptop: `zeph`
 
-Common Usage
+*Profiles (Home Manager)
+- NixOS user: `ben`
+- Dev user: `dev`
+
+Install
 ---
-Install config...
 ```sh
-# 
-sudo nixos-rebuild switch --flake /path/to/snow
+git clone --recursive https://github.com/benvonh/snow ~/snow
+cd snow/
+nix develop
+# or if experimental features are not enabled...
+nix develop --experimental-features 'nix-commands flakes'
+```
 
-# 
+## Usage
+---
+```sh
+sudo nixos-rebuild switch --flake . # NixOS
+home-manager       switch --flake . # Any
+
 ```
 
 ## Thanks To...
 
 - [Misterio77](https://github.com/misterio77) for his NixOS and Home Manager [template](https://github.com/misterio77/nix-starter-configs)
 - [mitchellh](https://github.com/mitchellh) for inspiration from his [nixos-config](https://github.com/mitchellh/nixos-config)
-- [linuxmobile](https://github.com/linuxmobile) for showing his [Hyprland config](https://github.com/mitchellh/nixos-config) on [ChrisTitusTech](https://youtube.com/@ChrisTitusTech)'s Hyprland stream
+- [linuxmobile](https://github.com/linuxmobile) for his [Hyprland config](https://github.com/mitchellh/nixos-config)

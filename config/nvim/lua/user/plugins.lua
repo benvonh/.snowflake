@@ -58,12 +58,6 @@ return packer.startup(function(use)
         run = '<cmd>TSUpdate<cr>'
     }
 
-    -- markdown preview
-    use {
-        'iamcco/markdown-preview.nvim',
-        run = function() vim.fn['mkdp#util#install']() end
-    }
-
     -- file explorer
     use {
         'nvim-tree/nvim-tree.lua',
@@ -78,7 +72,7 @@ return packer.startup(function(use)
 
     -- buffer line
     use {
-        'akinsho/bufferline.nvim', tag = "v3.*",
+        'akinsho/bufferline.nvim', tag = 'v3.*',
         requires = { 'nvim-tree/nvim-web-devicons' }
     }
 
