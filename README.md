@@ -7,26 +7,29 @@ Contents
 *Systems (NixOS)*
 - Laptop: `zeph`
 
-*Profiles (Home Manager)
-- NixOS user: `ben`
-- Dev user: `dev`
+*Profiles (Home Manager)*
+- Main: `ben`
+- Minimal: `dev`
 
 Install
 ---
 ```sh
 git clone --recursive https://github.com/benvonh/snow ~/snow
-cd snow/
+cd ~/snow
 nix develop
 # or if experimental features are not enabled...
 nix develop --experimental-features 'nix-commands flakes'
 ```
 
-## Usage
+Usage
 ---
 ```sh
-sudo nixos-rebuild switch --flake . # NixOS
-home-manager       switch --flake . # Any
+snow-home
+# aliased to `home-manager switch --flake ~/snow`
+snow-nixos
+# aliased to 'sudo nixos-rebuild switch --flake ~/snow'
 
+# NOTE: Defaults to using $USER and $HOST
 ```
 
 ## Thanks To...

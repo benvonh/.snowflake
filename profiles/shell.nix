@@ -14,8 +14,8 @@
       source ~/.config/zsh/init.zsh
     '';
     shellAliases = {
-      snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
       snow-home = "home-manager switch --flake ~/snow";
+      snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
     };
     history = {
       expireDuplicatesFirst = true;
