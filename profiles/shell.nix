@@ -16,6 +16,7 @@
     shellAliases = {
       snow-home = "home-manager switch --flake ~/snow";
       snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
+      snow-update = "nix flake update ~/snow";
     };
     history = {
       expireDuplicatesFirst = true;

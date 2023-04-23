@@ -9,6 +9,7 @@ opt.splitright = true
 
 -- visuals
 opt.number = true
+opt.syntax = 'yes'
 opt.pumheight = 8
 opt.cursorline = true
 opt.visualbell = true
@@ -47,6 +48,13 @@ opt.completeopt = 'menu,menuone,noselect'
 -- disable netrw for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- vimtex options
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_general_viewer = 'okular'
+vim.g.vimtex_view_general_options = '--unique file:@pdf\\#src:@line@tex'
+vim.g.vimtex_compiler_method = 'latexrun'
+vim.maplocalleader = ','
 
 -- neovim auto-session options
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,winsize,winpos'

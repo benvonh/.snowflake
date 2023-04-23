@@ -11,11 +11,18 @@
     # Meta
     nodejs
     cargo
+    texlive.combined.scheme-medium
 
     # Apps
     ranger
     neovim
     nvtop
+
+    # Rice
+    neofetch
+    tty-clock
+    pipes-rs
+    cava
   ];
 
   programs.exa = {

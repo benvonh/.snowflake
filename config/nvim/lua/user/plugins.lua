@@ -48,6 +48,9 @@ return packer.startup(function(use)
     -- nix
     use 'LnL7/vim-nix'
 
+    -- latex
+    use 'lervag/vimtex'
+
     -- colour scheme
     use { 'shaunsingh/nord.nvim', as = 'nord' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
