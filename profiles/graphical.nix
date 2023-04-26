@@ -9,6 +9,12 @@
     vlc
     qimgv
     xdg-utils
+
+    nvtop
+    neofetch
+    tty-clock
+    pipes-rs
+    cava
   ];
 
   programs.kitty = {
