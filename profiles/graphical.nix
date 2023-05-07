@@ -10,6 +10,7 @@
     qimgv
     xdg-utils
 
+    rclone
     nvtop
     neofetch
     tty-clock

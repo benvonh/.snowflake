@@ -50,7 +50,7 @@
 
     virt-manager
     iptables
-    spice_gtk
+    spice-gtk
   ];
 
   users.users = {
@@ -63,5 +63,5 @@
 
   programs.dconf.enable = true;
   virtualisation.libvirtd.enable = true;
-  security.wrappers.spice-client-glib-usb-acl-helper.source = "${pkgs.spice_gtk}/bin/spice-client-glib-usb-acl-helper";
+  virtualisation.spiceUSBRedirection.enable = true;
 }

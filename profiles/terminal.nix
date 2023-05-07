@@ -70,10 +70,6 @@
     };
   };
 
-  programs.taskwarrior = {
-    enable = true;
-  };
-
   xdg.configFile = with config.lib.file; {
     ranger = {
       source = mkOutOfStoreSymlink "${config.home.homeDirectory}/snow/config/ranger";

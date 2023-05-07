@@ -17,6 +17,7 @@
       snow-home = "home-manager switch --flake ~/snow";
       snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
       snow-update = "nix flake update ~/snow";
+      nix-shell-zsh = "nix-shell --run zsh";
     };
     history = {
       expireDuplicatesFirst = true;
