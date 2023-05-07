@@ -7,13 +7,6 @@ end
 
 tree.setup({
     hijack_cursor = true,
-    view = {
-        mappings = {
-            list = {
-                { key = 'u', action = 'dir_up' },
-            },
-        },
-    },
     renderer = {
         indent_markers = {
             enable = true,
