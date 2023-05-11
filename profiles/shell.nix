@@ -18,6 +18,8 @@
       snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
       snow-update = "nix flake update ~/snow";
       nix-shell-zsh = "nix-shell --run zsh";
+      rclone-copy = "rclone copy --verbose drive: ~/drive && rclone copy --verbose ~/drive drive:";
+      rclone-sync = "rclone sync --verbose drive: ~/drive && rclone sync --verbose ~/drive drive:";
     };
     history = {
       expireDuplicatesFirst = true;

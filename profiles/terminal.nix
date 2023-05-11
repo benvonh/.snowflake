@@ -9,8 +9,9 @@
     nmap
 
     # Meta
-    nodejs
+    clang
     cargo
+    nodejs
 
     # Apps
     ranger

@@ -57,11 +57,25 @@
     ben = {
       shell = pkgs.zsh;
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "libvirtd"
+        "docker"
+      ];
     };
   };
 
   programs.dconf.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   virtualisation.libvirtd.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 }

@@ -68,7 +68,7 @@ wk.register({
                         { prompt = 'Do you really want to save this session? [y/N] ' },
                         function(input)
                             if input == 'y' then
-                                vim.cmd('SaveSession')
+                                vim.cmd('SessionSave')
                                 print('Session saved')
                             else
                                 print('Cancelling save...')
