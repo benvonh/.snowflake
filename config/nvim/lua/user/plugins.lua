@@ -51,9 +51,11 @@ return packer.startup(function(use)
     -- latex
     use 'lervag/vimtex'
 
-    -- colour scheme
-    use { 'shaunsingh/nord.nvim', as = 'nord' }
+    -- colour schemes
     use { 'catppuccin/nvim', as = 'catppuccin' }
+    use { 'navarasu/onedark.nvim', as = 'onedark' }
+    use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
+    use { 'rmehri01/onenord.nvim' }
 
     -- tree sitter
     use {
@@ -73,7 +75,11 @@ return packer.startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
-    -- buffer line
+    -- window bars
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use {
         'akinsho/bufferline.nvim', tag = 'v3.*',
         requires = { 'nvim-tree/nvim-web-devicons' }

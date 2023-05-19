@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     google-chrome
     tor-browser-bundle-bin
+    brave
     xfce.thunar
     vscode
     mpv
@@ -20,14 +21,14 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Nord";
+    theme = "One Half Dark";
     settings = {
-      window_padding_width = 8;
+      window_padding_width = 2;
       placement_strategy = "center";
     };
     font = {
       name = "FiraCode Nerd Font Mono";
-      size = 11;
+      size = 10;
     };
   };
 }

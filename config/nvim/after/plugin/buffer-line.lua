@@ -17,7 +17,6 @@ if not (cat and buffer) then
 end
 
 buffer.setup({
-    --highlights = cat.get(),
     options = {
         mode = 'buffers',
         numbers = 'none',

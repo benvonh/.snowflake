@@ -8,8 +8,9 @@
     inputs.hardware.nixosModules.common-pc-laptop
     inputs.hardware.nixosModules.common-pc-laptop-ssd
 
-    ../common.nix
-    ../hyprland.nix
+    ../common
+    ../common/fonts
+    ../common/hyprland
   ];
 
   boot = {
@@ -21,23 +22,53 @@
     loader = {
       systemd-boot = {
         enable = true;
-        configurationLimit = 2;
+        configurationLimit = 5;
       };
       efi.canTouchEfiVariables = true;
     };
   };
 
-  networking.hostName = "zeph";
-
-  services.openssh = {
-    enable = false;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
+  users.users.ben = {
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "libvirtd"
+      "docker"
+    ];
   };
 
-  services.printing = {
-    enable = true;
+  networking = {
+    hostName = "zeph";
+    networkmanager.enable = true;
+    firewall.enable = true;
   };
+
+  services = {
+    openssh = {
+      enable = true;
+      permitRootLogin = "no";
+      passwordAuthentication = false;
+    };
+    printing.enable = true;
+  };
+
+  virtualisation = {
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    virt-manager iptables spice-gtk
+  ];
 
   system.stateVersion = "22.11";
 }

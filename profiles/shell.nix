@@ -33,7 +33,7 @@
   
   xdg.configFile = with config.lib.file; {
     zsh = {
-      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/snow/config/zsh";
+      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/.flakes/config/zsh";
       target = "zsh";
     };
   };

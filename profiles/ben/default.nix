@@ -1,12 +1,23 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
-    ../common.nix
-    ../hyprland.nix
-    ../graphical.nix
-    ../terminal.nix
-    ../shell.nix
-    ../gtk.nix
+    ../common
+    ../common/apps
+    ../common/assets
+    ../common/fish
+    ../common/git
+    ../common/gtk
+    ../common/helix
+    ../common/hypr
+    ../common/kitty
+    ../common/lf
+    ../common/mako
+    ../common/neovim
+    ../common/rice
+    ../common/swaylock
+    ../common/terminal
+    ../common/waybar
+    ../common/wofi
   ];
 
   home = {
@@ -14,7 +25,4 @@
     homeDirectory = "/home/ben";
     stateVersion = "22.11";
   };
-
-  xdg.dataHome = /home/ben/.local;
-  xdg.configHome = /home/ben/.config;
 }

@@ -1,0 +1,118 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+
+    "modules-left": [
+        "cpu",
+        "memory",
+        "disk",
+        "network"
+    ],
+    "modules-center": [
+        "wlr/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "battery",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "clock"
+    ],
+
+    "cpu": {
+        //"format": " {avg_frequency}Ghz ({usage}%)",
+        "format": " {avg_frequency}Ghz",
+        "interval": 5
+    },
+    "memory": {
+        //"format": " {used:0.1f}G ({percentage}%)",
+        "format": " {used:0.1f}G",
+        "interval": 5
+    },
+    "disk": {
+        //"format": " {used} ({percentage_used}%)",
+        "format": " {used}",
+        "interval": 60
+    },
+    "network": {
+        "format": "{ifname}",
+        //"format-wifi": " {bandwidthDownBytes} ({signalStrength}%)",
+        "format-wifi": " {bandwidthDownBytes}",
+        "format-ethernet": " {bandwidthDownBytes} ({ipaddr}/{cidr})",
+        "format-disconnected": " Disconnected",
+        "interface": "wlp5s0",
+        "interval": 5
+    },
+
+    "wlr/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "on-click": "activate",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-scroll-up": "hyprctl dispatch workspace e+1"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 64,
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "tooltip": true
+    },
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "format-muted": " Muted",
+        "on-click": "volumectl toggle-mute",
+        "on-scroll-down": "volumectl -u up 1",
+        "on-scroll-up": "volumectl -u down 1",
+        "scroll-step": 1
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "volumectl -m toggle-mute",
+        "on-scroll-down": "voluemctl -m -u up 1",
+        "on-scroll-up": "volumectl -m -u down 1",
+        "scroll-step": 1
+    },
+    "clock": {
+        "format": "{: %R   %d/%m}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    }
+}

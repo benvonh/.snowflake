@@ -12,6 +12,7 @@
     clang
     cargo
     nodejs
+    python3
 
     # Apps
     ranger
@@ -64,71 +65,23 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "nord";
-#      editor = {
-#        line-ending = "lf";
-#        tab-width = 4;
-#        scrolloff = 8;
-#        auto-indent = true;
-#        incremental-search = true;
-#      };
-#      keys = {
-#        normal."G" = "move_end_of_file";
-#        normal."g g" = "move_start_of_file";
-#        normal.";" = "search_next";
-#        normal."," = "search_prev";
-#        normal."z z" = "center_view";
-#        normal."z t" = "align_view_top";
-#        normal."z b" = "align_view_bottom";
-#        visual."y" = "yank";
-#        visual."Y" = "yank_line";
-#        insert."<c-c>" = "normal_mode";
-#        insert."<c-r>" = "insert_mode_paste";
-#      };
-#      language_servers = {
-#        lsp = {
-#          rust_analyzer = {
-#            command = "rust-analyzer";
-#            filetypes = ["rust"];
-#          };
-#          pyright = {
-#            command = "pyright-langserver";
-#            args = ["--stdio"];
-#            filetypes = ["python"];
-#          };
-#          tsserver = {
-#            command = "typescript-language-server";
-#            args = ["--stdio"];
-#            filetypes = ["javascript" "typescript"];
-#          };
-#          clangd = {
-#            command = "clangd";
-#            args = ["--background-index" "--clang-tidy" "--completion-style=bundled" "--header-insertion=iwyu"];
-#            filetypes = ["c" "cpp" "objc" "objcpp" "cc"];
-#          };
-#        };
-#      };
-#      language.rust.indent = 4;
-#      language.rust.tab_width = 4;
-#
-#      language.python.indent = 4;
-#      language.python.tab_width = 4;
-#
-#      language.go.indent = 4;
-#      language.go.tab_width = 4;
-#
-#      language.javascript.indent = 2;
-#      language.javascript.tab_width = 2;
+      theme = "onedark";
     };
   };
 
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  programs.fish.enable = true;
+
   xdg.configFile = with config.lib.file; {
     ranger = {
-      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/snow/config/ranger";
+      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/.flakes/config/ranger";
       target = "ranger";
     };
     neovim = {
-      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/snow/config/nvim";
+      source = mkOutOfStoreSymlink "${config.home.homeDirectory}/.flakes/config/nvim";
       target = "nvim";
     };
   };
