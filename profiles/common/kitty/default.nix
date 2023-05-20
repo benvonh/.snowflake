@@ -2,13 +2,13 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "One Half Dark";
+    theme = "kanagawabones";
     settings = {
       window_padding_width = 2;
       placement_strategy = "center";
     };
     font = {
-      name = "FiraCode Nerd Font Mono";
+      name = "FiraCode Nerd Font";
       size = 10;
     };
     #shellIntegration = {

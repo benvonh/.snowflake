@@ -5,23 +5,44 @@
     settings = {
       icons = true;
       hidden = true;
-      number = false;
       drawbox = true;
+      scrolloff = 10;
+      shell = "bash";
     };
     commands = {
-      mkdir = ''
-        ''${{
-          printf "Directory name: "
+      create = ''
+        %{{
+          path=$(dirname "$fx")
+          printf "New name: $path/"
           read ans
-          mkdir $ans
+          if [[ "$ans" =~ /$ ]]; then
+            mkdir "$path/$ans"
+            printf "Created new directory $path/$ans"
+          else
+            touch "$path/$ans"
+            printf "Created new file $path/$ans"
+          fi
         }}
       '';
-    };
-    cmdKeybindings = {
-
+      trash = ''
+        %{{
+          printf "Delete file? [y/N] "
+          read ans
+          if [[ "$ans" == "y" ]]; then
+            trash-put $fx
+            printf "$fx sent to trash"
+          else
+            printf "Cancelled"
+          fi
+        }}
+      '';
+      cd-trash = "cd ~/.local/share/Trash/";
     };
     keybindings = {
-      mk = "mkdir";
+      a = "create";
+      D = "trash";
+      T = "cd-trash";
+      "." = "set hidden!";
     };
     previewer = {
       source = pkgs.writeShellScript "pv.sh" ''
@@ -43,7 +64,7 @@
             exiftool "$file"
             ;;
           * )
-            bat --force-colorization --paging=never --style=changes,numbers "$file"
+            bat --force-colorization --paging=never --style=full "$file"
             ;;
         esac
       '';

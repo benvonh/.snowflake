@@ -5,7 +5,6 @@
     ../common/apps
     ../common/assets
     ../common/avizo
-    ../common/fish
     ../common/git
     ../common/gtk
     ../common/helix
@@ -19,6 +18,7 @@
     ../common/terminal
     ../common/waybar
     ../common/wofi
+    ../common/zsh
   ];
 
   home = {

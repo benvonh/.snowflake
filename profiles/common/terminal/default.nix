@@ -2,11 +2,12 @@
 {
   home.packages = with pkgs; [
     # Commands
-    exiftools
+    exiftool
     fd
     nmap
     ripgrep
     tldr
+    trash-cli
     unzip
 
     # Programming
@@ -26,7 +27,7 @@
     };
     bat = {
       enable = true;
-      config.theme = "TwoDark";
+      config.theme = "Coldark-dark";
       extraPackages = with pkgs.bat-extras; [
         batdiff batman batgrep batwatch
       ];
