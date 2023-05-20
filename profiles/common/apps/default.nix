@@ -1,13 +1,13 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    google-chrome
-    tor-browser-bundle-bin
     brave
-    xfce.thunar
-    vscode
+    mate.caja
+    google-chrome
     mpv
+    tor-browser-bundle-bin
     vlc
+    vscode
     qimgv
   ];
 }

@@ -1,9 +1,14 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
-    ../common.nix
-    ../terminal.nix
-    ../shell.nix
+    ../common
+    ../common/fish
+    ../common/git
+    ../common/helix
+    ../common/lf
+    ../common/neovim
+    ../common/rice
+    ../common/terminal
   ];
 
   home = {
@@ -11,7 +16,4 @@
     homeDirectory = "/home/ben";
     stateVersion = "22.11";
   };
-  
-  xdg.dataHome = /home/ben/.local;
-  xdg.configHome = /home/ben/.config;
 }

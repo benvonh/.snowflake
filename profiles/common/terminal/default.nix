@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # Commands
+    exiftools
     fd
     nmap
     ripgrep

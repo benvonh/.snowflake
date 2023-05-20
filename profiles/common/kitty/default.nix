@@ -12,7 +12,7 @@
       size = 10;
     };
     #shellIntegration = {
-    #  enableIntegration = true;
+    #  enableFishIntegration = true;
     #};
   };
 }

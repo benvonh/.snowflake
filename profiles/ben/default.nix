@@ -4,6 +4,7 @@
     ../common
     ../common/apps
     ../common/assets
+    ../common/avizo
     ../common/fish
     ../common/git
     ../common/gtk
