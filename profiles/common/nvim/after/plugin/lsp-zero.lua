@@ -66,22 +66,22 @@ cmp.setup({
         end
     },
     mapping = cmp.mapping.preset.insert({
-        ['<cr>']  = cmp.mapping.confirm(),
-        ['<c-d>'] = cmp.mapping.scroll_docs(4),
-        ['<c-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<c-p>'] = cmp.mapping.select_prev_item(select_opts),
-        ['<c-n>'] = cmp.mapping.select_next_item(select_opts),
-        ['<c-e>'] = cmp.mapping.abort(),
-        ['<tab>'] = cmp.mapping(
+        ['<cr>']    = cmp.mapping.confirm(),
+        ['<c-d>']   = cmp.mapping.scroll_docs(4),
+        ['<c-u>']   = cmp.mapping.scroll_docs(-4),
+        ['<c-p>']   = cmp.mapping.select_prev_item(select_opts),
+        ['<c-n>']   = cmp.mapping.select_next_item(select_opts),
+        ['<c-e>']   = cmp.mapping.abort(),
+        ['<tab>']   = cmp.mapping(
             function(fallback)
                 if cmp.visible() then
-                    cmp.select_next_item(select_opts)
+                    cmp.confirm({ select = true })
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
                 else
                     fallback()
                 end
-            end, {'i', 's'}
+            end, { 'i', 's' }
         ),
         ['<s-tab>'] = cmp.mapping(
             function(fallback)
@@ -92,7 +92,7 @@ cmp.setup({
                 else
                     fallback()
                 end
-            end, {'i', 's'}
+            end, { 'i', 's' }
         ),
     }),
     sources = cmp.config.sources({
@@ -131,7 +131,7 @@ lsp.preset('minimal')
 lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
+    lsp.default_keymaps({ buffer = bufnr })
 end)
 
 lsp.setup_servers({

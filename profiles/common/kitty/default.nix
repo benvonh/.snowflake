@@ -8,7 +8,7 @@
       placement_strategy = "center";
     };
     font = {
-      name = "Hasklug Nerd Font";
+      name = "MesloLGS NF";
       size = 10;
     };
     #shellIntegration = {

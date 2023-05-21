@@ -17,7 +17,7 @@ in
       export OPENER=bat
     '';
     initExtraFirst = ''
-      source ${zshPath}/init.zsh
+      source ${zshPath}/setup.zsh
     '';
     shellAliases = {
       ga = "git add";

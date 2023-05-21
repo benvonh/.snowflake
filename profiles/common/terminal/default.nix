@@ -36,7 +36,7 @@
     zathura
     latexrun
     # Lua
-    lua53Packages.lua-lsp
+    sumneko-lua-language-server
     # Node
     nodejs
     nodePackages.bash-language-server
