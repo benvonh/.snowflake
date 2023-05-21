@@ -1,11 +1,11 @@
 { config, commonPath, ... }:
 let
-  name = "swaylock";
-  swaylockPath = commonPath name;
+  name = "swayidle";
+  swayidlePath = commonPath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {
-    source = mkOutOfStoreSymlink swaylockPath;
+    source = mkOutOfStoreSymlink swayidlePath;
     target = name;
   };
 }

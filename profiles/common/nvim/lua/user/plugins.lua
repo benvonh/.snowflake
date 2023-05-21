@@ -33,7 +33,6 @@ packer.init({
 
 -- manage plugins
 return packer.startup(function(use)
-
     -- packer
     use 'wbthomason/packer.nvim'
 
@@ -55,7 +54,6 @@ return packer.startup(function(use)
     use { 'catppuccin/nvim', as = 'catppuccin' }
     use { 'navarasu/onedark.nvim', as = 'onedark' }
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
-    use { 'rmehri01/onenord.nvim' }
 
     -- tree sitter
     use {
@@ -97,17 +95,14 @@ return packer.startup(function(use)
     -- lsp + cmp
     use { 'VonHeikemen/lsp-zero.nvim',
         requires = {
-            -- LSP support
             { 'neovim/nvim-lspconfig' },
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
             -- completion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-cmdline' },
-            { 'hrsh7th/cmp-nvim-lua' },
             { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
             -- snippets
             { 'L3MON4D3/LuaSnip' },
             { 'saadparwaiz1/cmp_luasnip' },
@@ -119,5 +114,4 @@ return packer.startup(function(use)
     if PACKER_BOOTSTRAP then
         packer.sync()
     end
-
 end)

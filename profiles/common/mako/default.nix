@@ -1,8 +1,11 @@
-{ ... }:
+{ config, commonPath, ... }:
+let
+  name = "mako";
+  makoPath = commonPath name;
+in
 {
-  xdg.configFile.mako = {
-    enable = true;
-    source = ./config;
-    target = "mako/config";
+  xdg.configFile.${name} = with config.lib.file; {
+    source = mkOutOfStoreSymlink makoPath;
+    target = name;
   };
 }

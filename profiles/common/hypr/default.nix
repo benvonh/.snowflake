@@ -1,15 +1,15 @@
-{ ... }:
+{ config, commonPath, ... }:
+let
+  name = "hypr";
+  hyprPath = commonPath name;
+in
 {
-  xdg.configFile = {
-    hyprland = {
-      enable = true;
-      source = ./hyprland.conf;
-      target = "hypr/hyprland.conf";
-    };
-    hyprpaper = {
-      enable = true;
-      source = ./hyprpaper.conf;
-      target = "hypr/hyprpaper.conf";
-    };
+  programs.zsh.profileExtra = ''
+    [[ $(tty) == /dev/tty1 ]] && exec Hyprland
+  '';
+
+  xdg.configFile.${name} = with config.lib.file; {
+    source = mkOutOfStoreSymlink hyprPath;
+    target = name;
   };
 }

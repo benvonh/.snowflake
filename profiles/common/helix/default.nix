@@ -3,7 +3,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "onedark";
+      theme = "base16_default_dark";
     };
   };
 }

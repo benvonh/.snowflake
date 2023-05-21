@@ -21,6 +21,7 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
+      flakePath = home: nix: "${home}/.flakes/profiles/common/${nix}";
     in
     rec {
       packages = forAllSystems (system:
@@ -49,12 +50,12 @@
       homeConfigurations = {
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit self inputs outputs; };
+          extraSpecialArgs = { inherit inputs outputs flakePath; };
           modules = [ ./profiles/ben ];
         };
         dev = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit self inputs outputs; };
+          extraSpecialArgs = { inherit inputs outputs flakePath; };
           modules = [ ./profiles/dev ];
         };
       };

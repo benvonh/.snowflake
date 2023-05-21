@@ -1,13 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, commonPath, ... }:
+let
+  name = "lf";
+  lfPath = commonPath name;
+in
 {
   programs.lf = {
     enable = true;
     settings = {
       icons = true;
-      hidden = true;
       drawbox = true;
       scrolloff = 10;
-      shell = "bash";
     };
     commands = {
       create = ''
@@ -71,9 +73,8 @@
     };
   };
 
-  xdg.configFile.lf-icons = {
-    enable = true;
+  xdg.configFile.${name} = {
     source = ./icons;
-    target = "lf/icons";
+    target = "${name}/icons";
   };
 }

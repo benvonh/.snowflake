@@ -29,7 +29,7 @@
   };
 
   users.users.ben = {
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = [
       "wheel"

@@ -17,12 +17,13 @@
     swaylock-effects
 
     # Utilities
-    sox  
+    brightnessctl
+    libnotify
     pamixer
+    sox  
+    wl-clipboard
     wlr-randr
     xdg-utils
-    libnotify
-    brightnessctl
   ];
 
   programs = {

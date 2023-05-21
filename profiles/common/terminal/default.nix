@@ -1,40 +1,70 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Commands
+    # PDF thumbnail
+    evince
+    # Image metadata
     exiftool
+    # Better find
     fd
+    # Image thumbnail
+    ffmpegthumbnailer
+    # Networking
     nmap
+    # Better grep
     ripgrep
+    # Better help
     tldr
+    # Trash system
     trash-cli
+    # Unzip tool
     unzip
 
-    # Programming
-    cargo
+    # C/C++
     clang
     clang-tools
-    nodejs
+    cmake-language-server
+    # Python
     python3
+    pyright
+    # Nix
+    rnix-lsp
+    # Rust
+    cargo
+    # Latex
+    biber
+    zathura
+    latexrun
+    # Lua
+    lua53Packages.lua-lsp
+    # Node
+    nodejs
+    nodePackages.bash-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages.dockerfile-language-server-nodejs
   ];
 
   programs = {
+    # Better ls
     exa = {
       enable = true;
       enableAliases = true;
       icons = true;
       git = true;
     };
+    # Better cat + more
     bat = {
       enable = true;
-      config.theme = "Coldark-dark";
+      config.theme = "Coldark-Dark";
       extraPackages = with pkgs.bat-extras; [
         batdiff batman batgrep batwatch
       ];
     };
+    # Better top
     htop = {
       enable = true;
     };
+    # Better htop
     btop = {
       enable = true;
       settings = {

@@ -29,7 +29,8 @@ wk.register({
 -- plugin commands
 wk.register({
     -- file explorer
-    ['<leader>e'] = { '<cmd>NvimTreeFindFileToggle<cr>',        'Focus tree' },
+    ['<leader>t'] = { '<cmd>NvimTreeToggle<cr>',                'Toggle tree' },
+    ['<leader>e'] = { '<cmd>NvimTreeFindFile<cr>',              'Focus tree' },
     ['<leader>c'] = { '<cmd>NvimTreeCollapseKeepBuffers<cr>',   'Collapse tree' },
     -- telescope
     ['<leader>b'] = { '<cmd>Telescope buffers<cr>',             'Find buffer' },

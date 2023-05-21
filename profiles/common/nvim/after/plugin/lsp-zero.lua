@@ -11,9 +11,10 @@ end
 
 local cmp = try_require('cmp')
 local lsp = try_require('lsp-zero')
+local lspconf = try_require('lspconfig')
 local luasnip = try_require('luasnip')
 
-if not (cmp and lsp and luasnip) then
+if not (cmp and lsp and lspconf and luasnip) then
     return
 end
 
@@ -71,7 +72,8 @@ cmp.setup({
         ['<c-p>'] = cmp.mapping.select_prev_item(select_opts),
         ['<c-n>'] = cmp.mapping.select_next_item(select_opts),
         ['<c-e>'] = cmp.mapping.abort(),
-        ['<tab>'] = cmp.mapping(function(fallback)
+        ['<tab>'] = cmp.mapping(
+            function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item(select_opts)
                 elseif luasnip.expand_or_jumpable() then
@@ -81,7 +83,8 @@ cmp.setup({
                 end
             end, {'i', 's'}
         ),
-        ['<s-tab>'] = cmp.mapping(function(fallback)
+        ['<s-tab>'] = cmp.mapping(
+            function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item(select_opts)
                 elseif luasnip.jumpable(-1) then
@@ -93,8 +96,8 @@ cmp.setup({
         ),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lua', keyword_length = 1 },
-        { name = 'nvim_lsp', keyword_length = 1 },
+        { name = 'nvim_lua', keyword_length = 2 },
+        { name = 'nvim_lsp', keyword_length = 2 },
     }, {
         { name = 'path', keyword_length = 3 },
         { name = 'buffer', keyword_length = 3 },
@@ -124,6 +127,23 @@ cmp.setup.cmdline(':', {
     }),
 })
 
-lsp.preset('lsp-compe')
+lsp.preset('minimal')
 lsp.nvim_workspace()
+
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
+
+lsp.setup_servers({
+    'clangd',
+    'cmake',
+    'pyright',
+    'bashls',
+    'rnix',
+    'lua_ls',
+    'dockerls',
+    'jsonls',
+})
+
+lspconf.lua_ls.setup(lsp.nvim_lua_ls())
 lsp.setup()

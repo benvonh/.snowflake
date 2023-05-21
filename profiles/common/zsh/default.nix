@@ -1,4 +1,8 @@
-{ ... }:
+{ config, commonPath, ... }:
+let
+  name = "zsh";
+  zshPath = commonPath name;
+in
 {
   programs.zsh = {
     enable = true;
@@ -9,17 +13,35 @@
     envExtra = ''
       export TERM=kitty
       export EDITOR=hx
+      export PAGER=bat
+      export OPENER=bat
     '';
     initExtraFirst = ''
-      source ~/.config/zsh/init.zsh
+      source ${zshPath}/init.zsh
     '';
     shellAliases = {
-      snow-home = "home-manager switch --flake ~/snow";
-      snow-nixos = "sudo nixos-rebuild switch --flake ~/snow";
-      snow-update = "nix flake update ~/snow";
-      nix-shell-zsh = "nix-shell --run zsh";
+      ga = "git add";
+      gs = "git status";
+      gc = "git commit";
+      hms = "home-manager switch --flake ~/.flakes";
+      nrs = "sudo nixos-rebuild switch --flake ~/.flakes";
+      ns = "nix-shell";
+      nsz = "nix-shell --run zsh";
       rclone-copy = "rclone copy --verbose drive: ~/drive && rclone copy --verbose ~/drive drive:";
       rclone-sync = "rclone sync --verbose drive: ~/drive && rclone sync --verbose ~/drive drive:";
+    };
+    zplug = {
+      enable = true;
+      plugins = [
+        { 
+          name = "romkatv/powerlevel10k";
+          tags = [ as:theme depth:1 ];
+        }
+        {
+          name = "marlonrichert/zsh-autocomplete";
+          tags = [ as:plugin depth:1 ];
+        }
+      ];
     };
     history = {
       expireDuplicatesFirst = true;
@@ -30,29 +52,9 @@
       enable = true;
     };
   };
-  
-  xdg.configFile = {
-    zsh-init = {
-      enable = true;
-      target = "zsh/init.zsh";
-      source = ./zsh/init.zsh;
-    };
-    zsh-p10k = {
-      enable = true;
-      target = "zsh/.p10k.zsh";
-      source = ./zsh/.p10k.zsh;
-    };
-    zsh-powerlevel10k = {
-      enable = true;
-      target = "zsh/powerlevel10k";
-      source = ./zsh/powerlevel10k;
-      recursive = true;
-    };
-    zsh-autocomplete = {
-      enable = true;
-      target = "zsh/zsh-autocomplete";
-      source = ./zsh/zsh-autocomplete;
-      recursive = true;
-    };
+
+  xdg.configFile.${name} = with config.lib.file; {
+    source = mkOutOfStoreSymlink zshPath;
+    target = name;
   };
 }

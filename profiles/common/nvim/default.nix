@@ -1,12 +1,15 @@
-{ pkgs, ... }:
+{ config, pkgs, commonPath, ... }:
+let
+  name = "nvim";
+  nvimPath = commonPath name;
+in
 {
-  home.packages = [ pkgs.neovim ];
-
-  xdg.configFile.nvim = {
-    enable = true;
-    source = ./nvim;
-    target = "nvim";
+  xdg.configFile.${name} = with config.lib.file; {
+    source = mkOutOfStoreSymlink nvimPath;
+    target = name;
   };
+
+  home.packages = [ pkgs.neovim ];
 
   home.file.".vimrc".text = ''
     inoremap <c-c> <esc>

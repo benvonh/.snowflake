@@ -8,7 +8,7 @@
       placement_strategy = "center";
     };
     font = {
-      name = "FiraCode Nerd Font";
+      name = "Hasklug Nerd Font";
       size = 10;
     };
     #shellIntegration = {
