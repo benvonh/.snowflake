@@ -6,6 +6,12 @@ if not ok then
 end
 
 comment.setup({
-    opleader = { line = '<c-_>' },
-    mappings = { basic = true, extra = false },
+    toggler = {
+        line = 'cl',
+        block = 'cb',
+    },
+    opleader = {
+        line = 'gl',
+        block = 'gb',
+    },
 })

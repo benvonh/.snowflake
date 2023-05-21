@@ -11,8 +11,12 @@
     ffmpegthumbnailer
     # Networking
     nmap
+    # Cloud syncing
+    rclone
     # Better grep
     ripgrep
+    # Screenshot
+    shotman
     # Better help
     tldr
     # Trash system

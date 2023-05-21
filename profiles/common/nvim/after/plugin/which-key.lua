@@ -6,15 +6,16 @@ if not ok then
 end
 
 vim.g.mapleader = ' '
+
 -- basic commands
 wk.register({
-    ['<leader>q'] = { '<cmd>q<cr>',                         'Quit buffer' },
-    ['<leader>w'] = { '<cmd>w<cr>',                         'Write buffer' },
-    ['<leader>x'] = { '<cmd>x<cr>',                         'Save and quit buffer' },
-    ['<leader>m'] = { '<cmd>messages<cr>',                  'Open messages' },
-    ['<leader>r'] = { '<cmd>bp<bar>sp<bar>bn<bar>bd<cr>',   'Remove buffer' },
-    ['<leader>v'] = { '<cmd>vsplit<cr>',                    'Split vertically' },
-    ['<leader>h'] = { '<cmd>split<cr>',                     'Split horizontally' },
+    ['<leader>q'] = { '<cmd>q<cr>', 'Quit buffer' },
+    ['<leader>w'] = { '<cmd>w<cr>', 'Write buffer' },
+    ['<leader>x'] = { '<cmd>x<cr>', 'Save and quit buffer' },
+    ['<leader>m'] = { '<cmd>messages<cr>', 'Open messages' },
+    ['<leader>r'] = { '<cmd>bp<bar>sp<bar>bn<bar>bd<cr>', 'Remove buffer' },
+    ['<leader>v'] = { '<cmd>vsplit<cr>', 'Split vertically' },
+    ['<leader>h'] = { '<cmd>split<cr>', 'Split horizontally' },
     ['<leader>'] = {
         z = {
             name = '+Neovim',
@@ -29,12 +30,12 @@ wk.register({
 -- plugin commands
 wk.register({
     -- file explorer
-    ['<leader>t'] = { '<cmd>NvimTreeToggle<cr>',                'Toggle tree' },
-    ['<leader>e'] = { '<cmd>NvimTreeFindFile<cr>',              'Focus tree' },
-    ['<leader>c'] = { '<cmd>NvimTreeCollapseKeepBuffers<cr>',   'Collapse tree' },
+    ['<leader>t'] = { '<cmd>NvimTreeToggle<cr>', 'Toggle tree' },
+    ['<leader>e'] = { '<cmd>NvimTreeFindFile<cr>', 'Focus tree' },
+    ['<leader>c'] = { '<cmd>NvimTreeCollapseKeepBuffers<cr>', 'Collapse tree' },
     -- telescope
-    ['<leader>b'] = { '<cmd>Telescope buffers<cr>',             'Find buffer' },
-    ['<leader>l'] = { '<cmd>Telescope live_grep<cr>',           'Find word' },
+    ['<leader>b'] = { '<cmd>Telescope buffers<cr>', 'Find buffer' },
+    ['<leader>l'] = { '<cmd>Telescope live_grep<cr>', 'Find word' },
     ['<leader>f'] = {
         function()
             local ok, _ = pcall(vim.cmd, 'Telescope git_files')
@@ -66,13 +67,11 @@ wk.register({
             s = {
                 function()
                     vim.ui.input(
-                        { prompt = 'Do you really want to save this session? [y/N] ' },
+                        { prompt = 'Create a session? ' },
                         function(input)
                             if input == 'y' then
                                 vim.cmd('SessionSave')
-                                print('Session saved')
-                            else
-                                print('Cancelling save...')
+                                print('New session created!')
                             end
                         end
                     )
@@ -84,5 +83,20 @@ wk.register({
                 'Session lens'
             },
         },
+    },
+    -- LSP
+    ['<leader>n'] = {
+        function()
+            vim.ui.input(
+                { prompt = 'Format using LSP? ' },
+                function(input)
+                    if input == 'y' then
+                        vim.cmd('LspZeroFormat')
+                        print('Formatted!')
+                    end
+                end
+            )
+        end,
+        'LSP Format'
     },
 })

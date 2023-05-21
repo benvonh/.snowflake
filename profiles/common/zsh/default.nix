@@ -13,19 +13,23 @@ in
     envExtra = ''
       export TERM=kitty
       export EDITOR=hx
-      export PAGER=bat
       export OPENER=bat
+      export PAGER='bat --force-colorization --paging=always --style=full'
+    '';
+    initExtra = ''
+      bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+      bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
     '';
     initExtraFirst = ''
       source ${zshPath}/setup.zsh
     '';
     shellAliases = {
       ga = "git add";
-      gs = "git status";
       gc = "git commit";
+      gs = "git status";
       hms = "home-manager switch --flake ~/.flakes";
       nrs = "sudo nixos-rebuild switch --flake ~/.flakes";
-      ns = "nix-shell";
+      nsb = "nix-shell";
       nsz = "nix-shell --run zsh";
       rclone-copy = "rclone copy --verbose drive: ~/drive && rclone copy --verbose ~/drive drive:";
       rclone-sync = "rclone sync --verbose drive: ~/drive && rclone sync --verbose ~/drive drive:";

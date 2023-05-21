@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware.nix
-    
+
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-laptop
@@ -45,6 +45,11 @@
     firewall.enable = true;
   };
 
+  security.sudo.extraConfig = ''
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/poweroff
+    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/reboot
+  '';
+
   services = {
     openssh = {
       enable = true;
@@ -67,7 +72,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    virt-manager iptables spice-gtk
+    virt-manager
+    iptables
+    spice-gtk
   ];
 
   system.stateVersion = "22.11";
