@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "waybar";
-  waybarPath = commonPath name;
+  waybarPath = sharePath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {

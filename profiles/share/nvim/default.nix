@@ -1,7 +1,7 @@
-{ config, pkgs, commonPath, ... }:
+{ config, pkgs, sharePath, ... }:
 let
   name = "nvim";
-  nvimPath = commonPath name;
+  nvimPath = sharePath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {

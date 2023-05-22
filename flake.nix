@@ -21,7 +21,7 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-      flakePath = home: nix: "${home}/.flakes/profiles/common/${nix}";
+      flakePath = home: nix: "${home}/.flakes/profiles/share/${nix}";
     in
     rec {
       packages = forAllSystems (system:

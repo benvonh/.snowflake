@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "zsh";
-  zshPath = commonPath name;
+  zshPath = sharePath name;
 in
 {
   programs.zsh = {
@@ -25,6 +25,7 @@ in
     '';
     shellAliases = {
       ga = "git add";
+      gd = "git diff";
       gc = "git commit";
       gs = "git status";
       hms = "home-manager switch --flake ~/.flakes";

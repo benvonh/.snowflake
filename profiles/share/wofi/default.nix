@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "wofi";
-  wofiPath = commonPath name;
+  wofiPath = sharePath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {

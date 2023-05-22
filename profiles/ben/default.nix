@@ -2,28 +2,29 @@
 let
   user = "ben";
   homePath = "/home/${user}";
-  commonPath = nix: flakePath homePath nix;
+  sharePath = nix: flakePath homePath nix;
 in
 {
   imports = [
-    (import ../common          (args // { inherit commonPath; }))
-    (import ../common/apps     (args // { inherit commonPath; }))
-    (import ../common/assets   (args // { inherit commonPath; }))
-    (import ../common/avizo    (args // { inherit commonPath; }))
-    (import ../common/git      (args // { inherit commonPath; }))
-    (import ../common/gtk      (args // { inherit commonPath; }))
-    (import ../common/helix    (args // { inherit commonPath; }))
-    (import ../common/hypr     (args // { inherit commonPath; }))
-    (import ../common/kitty    (args // { inherit commonPath; }))
-    (import ../common/lf       (args // { inherit commonPath; }))
-    (import ../common/mako     (args // { inherit commonPath; }))
-    (import ../common/nvim     (args // { inherit commonPath; }))
-    (import ../common/rice     (args // { inherit commonPath; }))
-    (import ../common/swaylock (args // { inherit commonPath; }))
-    (import ../common/terminal (args // { inherit commonPath; }))
-    (import ../common/waybar   (args // { inherit commonPath; }))
-    (import ../common/wofi     (args // { inherit commonPath; }))
-    (import ../common/zsh      (args // { inherit commonPath; }))
+    (import ../share/apps     (args // { inherit sharePath; }))
+    (import ../share/assets   (args // { inherit sharePath; }))
+    (import ../share/avizo    (args // { inherit sharePath; }))
+    (import ../share/common   (args // { inherit sharePath; }))
+    (import ../share/git      (args // { inherit sharePath; }))
+    (import ../share/gtk      (args // { inherit sharePath; }))
+    (import ../share/helix    (args // { inherit sharePath; }))
+    (import ../share/hypr     (args // { inherit sharePath; }))
+    (import ../share/kitty    (args // { inherit sharePath; }))
+    (import ../share/lf       (args // { inherit sharePath; }))
+    (import ../share/mako     (args // { inherit sharePath; }))
+    (import ../share/nvim     (args // { inherit sharePath; }))
+    (import ../share/rice     (args // { inherit sharePath; }))
+    (import ../share/swayidle (args // { inherit sharePath; }))
+    (import ../share/swaylock (args // { inherit sharePath; }))
+    (import ../share/terminal (args // { inherit sharePath; }))
+    (import ../share/waybar   (args // { inherit sharePath; }))
+    (import ../share/wofi     (args // { inherit sharePath; }))
+    (import ../share/zsh      (args // { inherit sharePath; }))
   ];
 
   home = {

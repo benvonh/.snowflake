@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "swaylock";
-  swaylockPath = commonPath name;
+  swaylockPath = sharePath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {

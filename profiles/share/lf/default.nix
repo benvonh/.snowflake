@@ -1,7 +1,7 @@
-{ config, pkgs, commonPath, ... }:
+{ config, pkgs, sharePath, ... }:
 let
   name = "lf";
-  lfPath = commonPath name;
+  lfPath = sharePath name;
 in
 {
   programs.lf = {

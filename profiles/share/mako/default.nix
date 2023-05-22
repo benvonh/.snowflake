@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "mako";
-  makoPath = commonPath name;
+  makoPath = sharePath name;
 in
 {
   xdg.configFile.${name} = with config.lib.file; {

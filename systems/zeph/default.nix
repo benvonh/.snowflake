@@ -3,14 +3,14 @@
   imports = [
     ./hardware.nix
 
-    inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-gpu-amd
-    inputs.hardware.nixosModules.common-pc-laptop
-    inputs.hardware.nixosModules.common-pc-laptop-ssd
+    inputs.hardware.nixosModules.share-cpu-amd
+    inputs.hardware.nixosModules.share-gpu-amd
+    inputs.hardware.nixosModules.share-pc-laptop
+    inputs.hardware.nixosModules.share-pc-laptop-ssd
 
-    ../common
-    ../common/fonts
-    ../common/hyprland
+    ../share/common
+    ../share/fonts
+    ../share/hyprland
   ];
 
   boot = {
@@ -44,11 +44,6 @@
     networkmanager.enable = true;
     firewall.enable = true;
   };
-
-  security.sudo.extraConfig = ''
-    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/poweroff
-    %wheel ALL=(ALL) NOPASSWD: /run/current-system/sw/bin/reboot
-  '';
 
   services = {
     openssh = {

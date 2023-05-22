@@ -1,7 +1,7 @@
-{ config, commonPath, ... }:
+{ config, sharePath, ... }:
 let
   name = "hypr";
-  hyprPath = commonPath name;
+  hyprPath = sharePath name;
 in
 {
   programs.zsh.profileExtra = ''
