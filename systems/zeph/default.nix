@@ -3,10 +3,10 @@
   imports = [
     ./hardware.nix
 
-    inputs.hardware.nixosModules.share-cpu-amd
-    inputs.hardware.nixosModules.share-gpu-amd
-    inputs.hardware.nixosModules.share-pc-laptop
-    inputs.hardware.nixosModules.share-pc-laptop-ssd
+    inputs.hardware.nixosModules.common-cpu-amd
+    inputs.hardware.nixosModules.common-gpu-amd
+    inputs.hardware.nixosModules.common-pc-laptop
+    inputs.hardware.nixosModules.common-pc-laptop-ssd
 
     ../share/common
     ../share/fonts
@@ -18,6 +18,9 @@
     kernelParams = [
       "pcie_aspm.policy=powersupersave"
       "acpi.prefer_microsoft_dsm_guid=1"
+    ];
+    kernelModules = [
+      "amdgpu"
     ];
     loader = {
       systemd-boot = {

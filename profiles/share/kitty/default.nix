@@ -4,11 +4,11 @@
     enable = true;
     theme = "kanagawabones";
     settings = {
-      window_padding_width = 2;
+      window_padding_width = 0;
       placement_strategy = "center";
     };
     font = {
-      name = "MesloLGS NF";
+      name = "FiraCode Nerd Font";
       size = 10;
     };
     #shellIntegration = {
