@@ -26,10 +26,7 @@
     xdg-utils
   ];
 
-  programs = {
-    dconf.enable = true;
-    hyprland.enable = true;
-  };
+  programs.hyprland.enable = true;
 
   security = {
     rtkit.enable = true;

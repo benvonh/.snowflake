@@ -1,22 +1,47 @@
-{ pkgs, ... }:
+{ homePath, pkgs, ... }:
 {
   gtk = with pkgs; {
     enable = true;
+    gtk3.bookmarks = [
+      "trash:///${homePath}/.local/share/Trash"
+      "file:///${homePath}/tum tum"
+      "file:///${homePath}/drive drve"
+      "file:///${homePath}/repos repos"
+      "file:///${homePath}/downloads downloads"
+      "file:///${homePath}/screenshots screenshots"
+    ];
+    # cursorTheme = {
+    #   package = nordzy-cursor-theme;
+    #   name = "Nordzy-white-cursors";
+    #   size = 24;
+    # };
     cursorTheme = {
-      package = nordzy-cursor-theme;
-      name = "Nordzy-white-cursors";
+      package = vimix-cursors;
+      name = "dist-white";
       size = 24;
     };
+    # iconTheme = {
+    #   package = numix-icon-theme-circle;
+    #   name = "Numix-Circle";
+    # };
+    # iconTheme = {
+    #   package = kanagawa-gtk-theme;
+    #   name = "Kanagawa";
+    # };
     iconTheme = {
-      package = numix-icon-theme-circle;
-      name = "Numix-Circle";
+      package = vimix-icon-theme;
+      name = "Vimix";
     };
+    # theme = {
+    #   package = nordic;
+    #   name = "Nordic-darker";
+    # };
     theme = {
-      package = nordic;
-      name = "Nordic-darker";
+      package = kanagawa-gtk-theme;
+      name = "Kanaga-BL";
     };
     font = {
-      name = "Noto Sans";
+      name = "DejaVu Sans";
       size = 10;
     };
   };

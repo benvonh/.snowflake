@@ -8,11 +8,12 @@
     # Video players
     mpv
     vlc
-    # File manager
-    pcmanfm
-    # Graphical editor
+    # Editor
     vscode
-    # Image viewer
-    qimgv
+    # GNOME applications
+    gnome.nautilus
+    gnome.gnome-calculator
+    gnome.gnome-disk-utility
+    gnome.gnome-system-monitor
   ];
 }

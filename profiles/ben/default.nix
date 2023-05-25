@@ -11,7 +11,7 @@ in
     (import ../share/avizo    (args // { inherit sharePath; }))
     (import ../share/common   (args // { inherit sharePath; }))
     (import ../share/git      (args // { inherit sharePath; }))
-    (import ../share/gtk      (args // { inherit sharePath; }))
+    (import ../share/gtk      (args // { inherit sharePath homePath; }))
     (import ../share/helix    (args // { inherit sharePath; }))
     (import ../share/hypr     (args // { inherit sharePath; }))
     (import ../share/kitty    (args // { inherit sharePath; }))
