@@ -1,39 +1,83 @@
-# Snow
+# .flake
 
-A Nix flake configuration for NixOS and Home Manager. Named `snow` for its Nordic theme.
+Nix flake configurations for NixOS and Home Manager.
+
+Features
+---
+- `Hyprland` - Wayland compositor
+- `Neovim` - themed and plugged
+- `ZSH` - with powerlevel10k
+- `EWW` - for functional ricing
 
 Contents
 ---
-*Systems (NixOS)*
-- Laptop: `zeph`
+Systems (NixOS):
+- `zeph` - laptop
 
-*Profiles (Home Manager)*
-- Main: `ben`
-- Minimal: `dev`
+Profiles (Home Manager):
+- `ben` - desktop
+- `dev` - minimal
 
 Install
 ---
+Prerequisites:
+- `git`
+- `nix`
+- `home-manager`
+
+1. Online install (NixOS) - NOT RECOMMENDED
 ```sh
-git clone --recursive https://github.com/benvonh/snow ~/snow
-cd ~/snow
-nix develop
-# or if experimental features are not enabled...
+# Create new system configuration on your own remote repository
+sudo nixos-rebuild switch --flake github:benvonh/.flake#<system>
+```
+
+2. Online install (Home Manager) - RECOMMENDED
+```sh
+# Prefer `dev` for only terminal configuration
+home-manager switch --flake github:benvonh/.flake#<profile>
+```
+
+3. Local install (NixOS)
+```sh
+git clone https://github.com/benvonh/.flake.git ~/.flake/
+cd ~/.flake/
 nix develop --experimental-features 'nix-commands flakes'
+
+# Create new system configuration
+cd ~/.flake/systems/
+cp -rv zeph/ <name>
+# Generate hardware configuraiton
+nixos-generate-config --show-hardware-config > ~/.flake/systems/<name>/hardware.nix
+# Edit share nix files and configuration
+vim ~/.flake/systems/share/
+# See usage
+```
+
+4. Local install (Home Manager)
+```sh
+git clone https://github.com/benvonh/.flake.git ~/.flake/
+cd ~/.flake/
+nix develop --experimental-features 'nix-commands flakes'
+
+# Create new profile configuration
+cd ~/.flake/profiles/
+cp -rv ben/ <name>
+# Edit share nix files and configuration
+vim ~/.flake/profiles/share/
+# See usage
 ```
 
 Usage
 ---
+Aliases are created for installing the Nix flake. The hostname and username are automatically used.
 ```sh
-snow-home
-# aliased to `home-manager switch --flake ~/snow`
-snow-nixos
-# aliased to 'sudo nixos-rebuild switch --flake ~/snow'
+# NixOS configuration
+nrs # sudo nixos-rebuild switch --flake ~/.flake
 
-# NOTE: Defaults to using $USER and $HOST
+# Home Manager configuration
+hms # home-manager switch --flake ~/.flake
 ```
 
-## Thanks To...
-
-- [Misterio77](https://github.com/misterio77) for his NixOS and Home Manager [template](https://github.com/misterio77/nix-starter-configs)
-- [mitchellh](https://github.com/mitchellh) for inspiration from his [nixos-config](https://github.com/mitchellh/nixos-config)
-- [linuxmobile](https://github.com/linuxmobile) for his [Hyprland config](https://github.com/mitchellh/nixos-config)
+Thanks To...
+---
+- [Misterio77](https://github.com/misterio77) for his flake template at [nix-starter-configs](https://github.com/misterio77/nix-starter-configs)

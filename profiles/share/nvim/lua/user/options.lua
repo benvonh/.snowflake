@@ -42,7 +42,6 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 -- others
 opt.timeoutlen = 500
 opt.mouse = 'a'
-opt.clipboard = 'unnamedplus'
 opt.completeopt = 'menu,menuone,noselect'
 
 -- disable netrw for nvim-tree

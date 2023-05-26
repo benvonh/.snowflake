@@ -42,6 +42,7 @@
     # Lua
     sumneko-lua-language-server
     # Node
+    yarn
     nodejs
     nodePackages.bash-language-server
     nodePackages.vscode-langservers-extracted

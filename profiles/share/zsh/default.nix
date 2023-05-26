@@ -28,8 +28,8 @@ in
       gd = "git diff";
       gc = "git commit";
       gs = "git status";
-      hms = "home-manager switch --flake ~/.flakes";
-      nrs = "sudo nixos-rebuild switch --flake ~/.flakes";
+      hms = "home-manager switch --flake ~/.flake";
+      nrs = "sudo nixos-rebuild switch --flake ~/.flake";
       nsb = "nix-shell";
       nsz = "nix-shell --run zsh";
       rclone-copy = "rclone copy --verbose drive: ~/drive && rclone copy --verbose ~/drive drive:";
