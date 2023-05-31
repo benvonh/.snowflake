@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 {
   imports = [
     inputs.hyprland.nixosModules.default
@@ -8,6 +8,7 @@
     # Desktop components
     wofi
     waybar
+    eww-wayland
     mpvpaper
     mako
     avizo

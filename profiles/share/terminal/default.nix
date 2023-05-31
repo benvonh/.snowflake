@@ -1,28 +1,19 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # PDF thumbnail
-    evince
-    # Image metadata
-    exiftool
-    # Better find
-    fd
-    # Image thumbnail
-    ffmpegthumbnailer
-    # Networking
-    nmap
-    # Cloud syncing
-    rclone
-    # Better grep
-    ripgrep
-    # Screenshot
-    shotman
-    # Better help
-    tldr
-    # Trash system
-    trash-cli
-    # Unzip tool
-    unzip
+    evince            # PDF thumbnail
+    exiftool          # Image metadata
+    fd                # Better find
+    ffmpegthumbnailer # Image thumbnail
+    jq                # Json parser
+    nmap              # Network mapper
+    rclone            # Cloud sync
+    ripgrep           # Better grep
+    shotman           # Screenshot
+    socat             # Cat for socket
+    tldr              # Better help
+    trash-cli         # Trash system
+    unzip             # Unzip tool
 
     # C/C++
     clang

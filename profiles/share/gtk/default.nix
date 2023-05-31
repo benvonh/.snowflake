@@ -7,8 +7,11 @@
       "file:///${homePath}/tum tum"
       "file:///${homePath}/drive drve"
       "file:///${homePath}/repos repos"
+      "file:///${homePath}/.local local"
+      "file:///${homePath}/.config config"
       "file:///${homePath}/downloads downloads"
       "file:///${homePath}/screenshots screenshots"
+      "file:///${homePath}/.nix-profile nix-profile"
     ];
     # cursorTheme = {
     #   package = nordzy-cursor-theme;
