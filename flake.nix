@@ -59,6 +59,11 @@
           extraSpecialArgs = { inherit inputs outputs flakePath; };
           modules = [ ./profiles/dev ];
         };
+        ros = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs flakePath; };
+          modules = [ ./profiles/ros ];
+        };
       };
     };
 }

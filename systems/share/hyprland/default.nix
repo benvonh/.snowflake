@@ -8,10 +8,12 @@
     # Desktop components
     wofi
     waybar
-    eww-wayland
     mpvpaper
     mako
     avizo
+
+    # FIXME: Wait for next release to fix Hyprland bug
+    # inputs.eww.packages.${system}.eww-wayland
 
     # Screen lock
     swayidle

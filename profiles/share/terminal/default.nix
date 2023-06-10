@@ -19,6 +19,7 @@
     clang
     clang-tools
     cmake-language-server
+    gnumake
     # Python
     python3
     pyright
