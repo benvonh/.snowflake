@@ -39,6 +39,11 @@ opt.swapfile = false
 opt.undofile = true
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 
+-- c/c++ override
+vim.cmd [[
+  autocmd FileType c,cpp setlocal tabstop=2 shiftwidth=2
+]]
+
 -- others
 opt.timeoutlen = 500
 opt.mouse = 'a'

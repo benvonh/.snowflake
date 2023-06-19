@@ -13,7 +13,7 @@
     avizo
 
     # FIXME: Wait for next release to fix Hyprland bug
-    # inputs.eww.packages.${system}.eww-wayland
+    inputs.eww.packages.${system}.eww-wayland
 
     # Screen lock
     swayidle

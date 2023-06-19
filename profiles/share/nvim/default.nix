@@ -4,12 +4,22 @@ let
   nvimPath = sharePath name;
 in
 {
+  home.packages = with pkgs; [
+    neovim
+    clang-tools
+    cmake-language-server
+    pyright
+    rnix-lsp
+    sumneko-lua-language-server
+    nodePackages.bash-language-server
+    nodePackages.vscode-langservers-extracted
+    nodePackages.dockerfile-language-server-nodejs
+  ];
+
   xdg.configFile.${name} = with config.lib.file; {
     source = mkOutOfStoreSymlink nvimPath;
     target = name;
   };
-
-  home.packages = [ pkgs.neovim ];
 
   home.file.".vimrc".text = ''
     inoremap <c-c> <esc>

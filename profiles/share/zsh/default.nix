@@ -26,6 +26,7 @@ in
     shellAliases = {
       ga = "git add";
       gd = "git diff";
+      gp = "git push";
       gc = "git commit";
       gs = "git status";
       hms = "home-manager switch --flake ~/.flake";

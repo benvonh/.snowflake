@@ -8,7 +8,9 @@
     # Video players
     mpv
     vlc
-    # Editor
+    # Discord
+    discord
+    # Code Editor
     vscode
     # GNOME applications
     gnome.nautilus

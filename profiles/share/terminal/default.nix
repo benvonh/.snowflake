@@ -14,31 +14,6 @@
     tldr              # Better help
     trash-cli         # Trash system
     unzip             # Unzip tool
-
-    # C/C++
-    clang
-    clang-tools
-    cmake-language-server
-    gnumake
-    # Python
-    python3
-    pyright
-    # Nix
-    rnix-lsp
-    # Rust
-    cargo
-    # Latex
-    biber
-    zathura
-    latexrun
-    # Lua
-    sumneko-lua-language-server
-    # Node
-    yarn
-    nodejs
-    nodePackages.bash-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages.dockerfile-language-server-nodejs
   ];
 
   programs = {
