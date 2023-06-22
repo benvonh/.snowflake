@@ -1,15 +1,15 @@
-# .flake
+# .snow
 
 Nix flake configurations for NixOS and Home Manager.
 
 Features
 ---
 - `Hyprland` - Wayland compositor
-- `Neovim` - themed and plugged
-- `ZSH` - with powerlevel10k
-- `EWW` - for functional ricing
+- `Neovim` - terminal IDE
+- `ZSH` - modern shell
+- `EWW` - desktop ricing
 
-Contents
+Configurations
 ---
 Systems (NixOS):
 - `zeph` - laptop
@@ -17,27 +17,17 @@ Systems (NixOS):
 Profiles (Home Manager):
 - `ben` - desktop
 - `dev` - minimal
+- `ros` - TODO
 
 Install
 ---
-Prerequisites:
-- `git`
-- `nix`
-- `home-manager`
-
-1. Online install (NixOS) - NOT RECOMMENDED
-```sh
-# Create new system configuration on your own remote repository
-sudo nixos-rebuild switch --flake github:benvonh/.flake#<system>
-```
-
-2. Online install (Home Manager) - RECOMMENDED
+1. Online install (Home Manager) - RECOMMENDED
 ```sh
 # Prefer `dev` for only terminal configuration
 home-manager switch --flake github:benvonh/.flake#<profile>
 ```
 
-3. Local install (NixOS)
+2. Local install (NixOS)
 ```sh
 git clone https://github.com/benvonh/.flake.git ~/.flake/
 cd ~/.flake/
@@ -53,7 +43,7 @@ vim ~/.flake/systems/share/
 # See usage
 ```
 
-4. Local install (Home Manager)
+3. Local install (Home Manager)
 ```sh
 git clone https://github.com/benvonh/.flake.git ~/.flake/
 cd ~/.flake/
@@ -69,7 +59,7 @@ vim ~/.flake/profiles/share/
 
 Usage
 ---
-Aliases are created for installing the Nix flake. The hostname and username are automatically used.
+Aliases are created for installing the Nix flake. The host name and user name are automatically used.
 ```sh
 # NixOS configuration
 nrs # sudo nixos-rebuild switch --flake ~/.flake

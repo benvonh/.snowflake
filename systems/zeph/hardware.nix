@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/18389103-1fb5-4022-afe6-3735705015b7";
+    { device = "/dev/disk/by-uuid/d499ac8b-2117-452f-a0bf-f4b77c452d4c";
       fsType = "ext4";
     };
 
@@ -31,6 +31,8 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp7s0f4u1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp8s0f4u1u4.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

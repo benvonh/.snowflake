@@ -22,7 +22,7 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-      flakePath = home: nix: "${home}/.flake/profiles/share/${nix}";
+      flakePath = home: nix: "${home}/.snow/profiles/share/${nix}";
     in
     rec {
       packages = forAllSystems (system:

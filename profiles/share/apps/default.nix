@@ -4,14 +4,15 @@
     # Web browsers
     brave
     google-chrome
-    tor-browser-bundle-bin
     # Video players
     mpv
     vlc
     # Discord
     discord
-    # Code Editor
+    # Code editor
     vscode
+    # PDF editor
+    libsForQt5.okular
     # GNOME applications
     gnome.nautilus
     gnome.gnome-calculator
