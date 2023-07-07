@@ -35,7 +35,9 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = [
+      "tty"
       "wheel"
+      "dialout"
       "networkmanager"
       "libvirtd"
       "docker"

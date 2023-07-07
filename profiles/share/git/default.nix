@@ -9,7 +9,7 @@
     gh = {
       enable = true;
       settings = {
-        editor = "hx";
+        editor = "nvim";
         prompt = "enabled";
       };
     };

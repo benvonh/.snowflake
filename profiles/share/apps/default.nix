@@ -9,8 +9,6 @@
     vlc
     # Discord
     discord
-    # Code editor
-    vscode
     # PDF editor
     libsForQt5.okular
     # GNOME applications

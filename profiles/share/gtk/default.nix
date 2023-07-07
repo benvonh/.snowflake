@@ -4,44 +4,39 @@
     enable = true;
     gtk3.bookmarks = [
       "trash:///${homePath}/.local/share/Trash"
-      "file:///${homePath}/tum tum"
-      "file:///${homePath}/drive drve"
+      "file:///${homePath}/downloads downloads"
+      "file:///${homePath}/drive drive"
       "file:///${homePath}/repos repos"
       "file:///${homePath}/.local local"
       "file:///${homePath}/.config config"
-      "file:///${homePath}/downloads downloads"
       "file:///${homePath}/screenshots screenshots"
+      "file:///${homePath}/tum tum"
       "file:///${homePath}/.nix-profile nix-profile"
     ];
-    # cursorTheme = {
+    cursorTheme = {
     #   package = nordzy-cursor-theme;
     #   name = "Nordzy-white-cursors";
-    #   size = 24;
-    # };
-    cursorTheme = {
       package = vimix-cursors;
       name = "dist-white";
       size = 24;
     };
-    # iconTheme = {
+    iconTheme = {
     #   package = numix-icon-theme-circle;
     #   name = "Numix-Circle";
-    # };
-    # iconTheme = {
     #   package = kanagawa-gtk-theme;
     #   name = "Kanagawa";
-    # };
-    iconTheme = {
-      package = vimix-icon-theme;
-      name = "Vimix";
+      # package = vimix-icon-theme;
+      # name = "Vimix";
+      package = arc-icon-theme;
+      name = "Arc";
     };
-    # theme = {
+    theme = {
     #   package = nordic;
     #   name = "Nordic-darker";
-    # };
-    theme = {
-      package = kanagawa-gtk-theme;
-      name = "Kanaga-BL";
+      # package = kanagawa-gtk-theme;
+      # name = "Kanaga-BL";
+      package = arc-theme;
+      name = "Arc-Darker";
     };
     font = {
       name = "DejaVu Sans";

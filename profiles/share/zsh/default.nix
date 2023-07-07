@@ -12,7 +12,7 @@ in
     defaultKeymap = "emacs";
     envExtra = ''
       export TERM=kitty
-      export EDITOR=hx
+      export EDITOR=nvim
       export OPENER=bat
       export PAGER='bat --force-colorization --paging=always --style=full'
     '';
@@ -29,12 +29,10 @@ in
       gp = "git push";
       gc = "git commit";
       gs = "git status";
-      hms = "home-manager switch --flake ~/.flake";
-      nrs = "sudo nixos-rebuild switch --flake ~/.flake";
+      hms = "home-manager switch --flake ~/.snow";
+      nrs = "sudo nixos-rebuild switch --flake ~/.snow";
       nsb = "nix-shell";
       nsz = "nix-shell --run zsh";
-      rclone-copy = "rclone copy --verbose drive: ~/drive && rclone copy --verbose ~/drive drive:";
-      rclone-sync = "rclone sync --verbose drive: ~/drive && rclone sync --verbose ~/drive drive:";
     };
     zplug = {
       enable = true;

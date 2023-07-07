@@ -8,7 +8,6 @@ in
   imports = [
     (import ../share/common   (args // { inherit sharePath; }))
     (import ../share/git      (args // { inherit sharePath; }))
-    (import ../share/helix    (args // { inherit sharePath; }))
     (import ../share/nvim     (args // { inherit sharePath; }))
     (import ../share/ranger   (args // { inherit sharePath; }))
     (import ../share/rice     (args // { inherit sharePath; }))
