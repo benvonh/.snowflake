@@ -31,6 +31,6 @@ in
   home = {
     username = user;
     homeDirectory = homePath;
-    stateVersion = "22.11";
+    stateVersion = "23.05";
   };
 }

@@ -44,17 +44,45 @@
     ];
   };
 
+  programs.zsh.enable = true;
+
   networking = {
     hostName = "zeph";
     networkmanager.enable = true;
     firewall.enable = true;
+    nat = {
+      enable = true;
+      externalInterface = "wlp5s0";
+      internalInterfaces = [ "enp8s0f4u1u4" ];
+    };
+    interfaces.enp8s0f4u1u4 = {
+      ipv4.addresses = [
+        {
+          address = "192.168.0.1";
+          prefixLength = 24;
+        }
+      ];
+    };
   };
 
   services = {
+    dhcpd4 = {
+      enable = true;
+      interfaces = [ "enp8s0f4u1u4" ];
+      extraConfig = ''
+        subnet 192.168.0.0 netmask 255.255.255.0 {
+          range 192.168.0.10 192.168.0.20;
+          option routers 192.168.0.1;
+          option domain-name-servers 8.8.8.8, 8.8.4.4;
+        }
+      '';
+    };
     openssh = {
       enable = true;
-      permitRootLogin = "no";
-      passwordAuthentication = false;
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
     };
     printing.enable = true;
   };
@@ -77,5 +105,5 @@
     spice-gtk
   ];
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }

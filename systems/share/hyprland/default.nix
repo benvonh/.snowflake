@@ -12,7 +12,6 @@
     mako
     avizo
 
-    # FIXME: Wait for next release to fix Hyprland bug
     inputs.eww.packages.${system}.eww-wayland
 
     # Screen lock
@@ -29,6 +28,7 @@
     xdg-utils
   ];
 
+  programs.steam.enable = true;
   programs.hyprland.enable = true;
 
   security = {
