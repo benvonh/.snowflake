@@ -81,7 +81,7 @@ kan.setup({
 })
 
 one.setup({
-    style = 'dark',
+    style = 'darker',
     transparent = false,
     term_colors = true,
     ending_tildes = false,
