@@ -13,7 +13,6 @@ in
     sumneko-lua-language-server
     nodePackages.bash-language-server
     nodePackages.vscode-langservers-extracted
-    nodePackages.dockerfile-language-server-nodejs
   ];
 
   xdg.configFile.${name} = with config.lib.file; {

@@ -144,7 +144,6 @@ lsp.setup_servers({
     'bashls',
     'rnix',
     'lua_ls',
-    'dockerls',
     'jsonls',
 })
 

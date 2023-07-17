@@ -40,7 +40,6 @@
       "dialout"
       "networkmanager"
       "libvirtd"
-      "docker"
     ];
   };
 
@@ -64,13 +63,6 @@
   };
 
   virtualisation = {
-    docker = {
-      enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
