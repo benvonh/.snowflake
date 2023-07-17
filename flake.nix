@@ -10,7 +10,7 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland.url = "github:hyprwm/hyprland?ref=v0.26.0";
     eww.url = "github:elkowar/eww";
   };
 

@@ -2,7 +2,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "kanagawabones";
+    theme = "Hybrid";
     settings = {
       window_padding_width = 0;
       cursor_shape = "block";

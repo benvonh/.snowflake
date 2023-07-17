@@ -19,11 +19,11 @@
     };
     iconTheme = {
       package = papirus-icon-theme;
-      name = "Papirus-Dark";
+      name = "ePapirus-Dark";
     };
     theme = {
-      package = adapta-gtk-theme;
-      name = "Adapta-Nokto";
+      package = fluent-gtk-theme;
+      name = "Fluent-Dark-compact";
     };
     font = {
       name = "DejaVu Sans";
