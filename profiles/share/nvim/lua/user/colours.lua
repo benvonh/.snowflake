@@ -12,8 +12,9 @@ end
 local cat = try_require('catppuccin')
 local kan = try_require('kanagawa')
 local one = try_require('onedark')
+local gvb = try_require('gruvbox')
 
-if not (cat and kan and one) then
+if not (cat and kan and one and gvb) then
     return
 end
 
@@ -105,4 +106,27 @@ one.setup({
         undercurl = true,
         background = true,
     },
+})
+
+gvb.setup({
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    invert_intend_guides = false,
+    inverse = true,
+    contrast = '',
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
 })

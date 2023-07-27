@@ -9,8 +9,6 @@
     vlc
     # Discord
     discord
-    # PDF editor
-    libsForQt5.okular
     # GNOME applications
     gnome.nautilus
     gnome.gnome-calculator

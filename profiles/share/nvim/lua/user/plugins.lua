@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use { 'catppuccin/nvim', as = 'catppuccin' }
     use { 'navarasu/onedark.nvim', as = 'onedark' }
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
+    use { 'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
 
     -- tree sitter
     use {

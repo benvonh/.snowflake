@@ -9,7 +9,6 @@
       "file:///${homePath}/.local local"
       "file:///${homePath}/.config config"
       "file:///${homePath}/screenshots screenshots"
-      "file:///${homePath}/tum tum"
       "file:///${homePath}/.nix-profile nix-profile"
     ];
     cursorTheme = {
@@ -18,12 +17,12 @@
       size = 24;
     };
     iconTheme = {
-      package = papirus-icon-theme;
-      name = "ePapirus-Dark";
+      package = numix-icon-theme-circle;
+      name = "Numix-Circle";
     };
     theme = {
-      package = fluent-gtk-theme;
-      name = "Fluent-Dark-compact";
+      package = orchis-theme;
+      name = "Orchis-Dark";
     };
     font = {
       name = "DejaVu Sans";

@@ -2,16 +2,15 @@
   description = "Nix flake config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    hyprland.url = "github:hyprwm/hyprland?ref=v0.26.0";
-    eww.url = "github:elkowar/eww";
+    hyprland.url = "github:hyprwm/hyprland";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -22,47 +21,36 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-      flakePath = home: nix: "${home}/.snow/profiles/share/${nix}";
+      share = home: nix: "${home}/.snow/profiles/share/${nix}";
     in
     rec {
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
-
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./shell.nix { inherit pkgs; }
       );
-
       overlays = import ./overlays { inherit inputs; };
-
       nixosModules = import ./modules/nixos;
-
       homeManagerModules = import ./modules/home;
-
       nixosConfigurations = {
         zeph = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./systems/zeph ];
         };
       };
-
       homeConfigurations = {
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs flakePath; };
+          extraSpecialArgs = { inherit inputs outputs share; };
           modules = [ ./profiles/ben ];
         };
         dev = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs flakePath; };
+          extraSpecialArgs = { inherit inputs outputs share; };
           modules = [ ./profiles/dev ];
-        };
-        ros = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs flakePath; };
-          modules = [ ./profiles/ros ];
         };
       };
     };

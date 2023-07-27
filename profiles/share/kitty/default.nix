@@ -2,7 +2,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Hybrid";
+    theme = "Gruvbox Dark";
     settings = {
       window_padding_width = 0;
       cursor_shape = "block";
@@ -11,7 +11,7 @@
     };
     font = {
       name = "FiraCode Nerd Font";
-      size = 10;
+      size = 11;
     };
     shellIntegration = {
       enableBashIntegration = true;

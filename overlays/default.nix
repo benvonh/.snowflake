@@ -6,19 +6,5 @@
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: {
-    waybar = prev.waybar.overrideAttrs (old: {
-      mesonFlags = old.mesonFlags ++ [ "-Dexperimental=true" ];
-      patches = (old.patches or []) ++ [ ./waybar-hyprland.patch ];
-    });
-  };
-
-  # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-  # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+  modifications = final: prev: {};
 }
