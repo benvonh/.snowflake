@@ -1,8 +1,8 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    brave
     vlc
+    brave
     discord
     gnome.nautilus
     gnome.gnome-calculator

@@ -16,8 +16,10 @@
       name = "Numix-Circle";
     };
     cursorTheme = {
-      package = vimix-cursors;
-      name = "dist-white";
+      # package = vimix-cursors;
+      # name = "dist-white";
+      package = graphite-cursors;
+      name = "graphite-light";
       size = 24;
     };
   };

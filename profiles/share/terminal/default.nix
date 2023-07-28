@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, share, ... }:
 let
   path = name: share "terminal/${name}";
+  wrap = name: config.lib.file.mkOutOfStoreSymlink (path name);
 in
 {
   home.packages = with pkgs; [
@@ -30,10 +31,10 @@ in
     nodePackages.vscode-langservers-extracted
   ];
 
-  xdg.configFile = with lib; {
-    zsh.source = mkOutOfStoreSymlink (path zsh);
-    nvim.source = mkOutOfStoreSymlink (path nvim);
-    ranger.source = mkOutOfStoreSymlink (path ranger);
+  xdg.configFile = {
+    zsh.source = wrap "zsh";
+    nvim.source = wrap "nvim";
+    ranger.source = wrap "ranger";
   };
 
   programs.exa = {
@@ -65,7 +66,7 @@ in
     };
   };
 
-  program.htop = {
+  programs.htop = {
     enable = true;
   };
 
@@ -83,7 +84,7 @@ in
     enable = true;
     enableCompletion = false;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     defaultKeymap = "emacs";
     envExtra = ''
       export TERM=kitty
@@ -95,7 +96,7 @@ in
       bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
       bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
     '';
-    initExtraFirst = "source ${(share zsh)}/setup.zsh";
+    initExtraFirst = "source ${(path "zsh")}/setup.zsh";
     shellAliases = {
       ga = "git add";
       gd = "git diff";

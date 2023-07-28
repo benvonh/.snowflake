@@ -4,13 +4,13 @@
     audio = {
       source = ./audio;
       target = "audio";
-      recursive = true;
+      recursive = false;
       executable = false;
     };
     wallpaper = {
       source = ./wallpaper;
       target = "wallpaper";
-      recursive = true;
+      recursive = false;
       executable = false;
     };
   };
