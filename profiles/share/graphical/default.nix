@@ -1,23 +1,52 @@
-{ pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    brave
+    vlc
+    discord
+    gnome.nautilus
+    gnome.gnome-calculator
+    gnome.gnome-disk-utility
+    gnome.gnome-system-monitor
+  ];
+
+  programs.kitty = {
+    enable = true;
+    theme = "Gruvbox Dark";
+    settings = {
+      cursor_shape = "block";
+      shell_integration = "no-cursor";
+      placement_strategy = "center";
+    };
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 11;
+    };
+    shellIntegration = {
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
+  };
+
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     extensions = with pkgs.vscode-extensions; [
-      marp-team.marp-vscode
-      mhutchie.git-graph
       ms-vscode.cpptools
       ms-vscode.cmake-tools
       ms-vscode.makefile-tools
-      ms-vscode.theme-tomorrowkit
       ms-vscode-remote.remote-ssh
-      ms-pyright.pyright
       ms-python.python
       ms-python.vscode-pylance
-      sumneko.lua
+      ms-pyright.pyright
       vscodevim.vim
       vscode-icons-team.vscode-icons
+      marp-team.marp-vscode
+      mhutchie.git-graph
+      sumneko.lua
+      jdinhlife.gruvbox
+      arcticicestudio.nord-visual-studio-code
     ];
     userSettings = {
       "editor.rulers" = [ 80 ];

@@ -63,6 +63,4 @@
     pkgs.spice-gtk
     pkgs.virt-manager
   ];
-
-  system.stateVersion = "23.11";
 }

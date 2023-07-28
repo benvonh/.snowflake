@@ -4,7 +4,6 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
     ];
     config = {
       allowUnfree = true;
@@ -17,4 +16,6 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  home.stateVersion = "23.11";
 }

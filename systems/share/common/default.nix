@@ -27,4 +27,6 @@
   environment.systemPackages = with pkgs; [
     busybox vim git
   ];
+
+  system.stateVersion = "23.11";
 }

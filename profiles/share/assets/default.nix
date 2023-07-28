@@ -1,17 +1,17 @@
-{ ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 {
   xdg.dataFile = {
     audio = {
-      recursive = true;
-      executable = false;
       source = ./audio;
       target = "audio";
-    };
-    wallpaper = {
       recursive = true;
       executable = false;
+    };
+    wallpaper = {
       source = ./wallpaper;
       target = "wallpaper";
+      recursive = true;
+      executable = false;
     };
   };
 }

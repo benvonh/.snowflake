@@ -1,5 +1,5 @@
 {
-  description = "Nix flake config";
+  description = "Nix flake configurations for NixOS and Home Manager";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -21,35 +21,39 @@
         "x86_64-linux"
         "aarch64-linux"
       ];
-      share = home: nix: "${home}/.snow/profiles/share/${nix}";
     in
     rec {
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
+
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
         in import ./shell.nix { inherit pkgs; }
       );
+
       overlays = import ./overlays { inherit inputs; };
+
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home;
+
       nixosConfigurations = {
         zeph = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./systems/zeph ];
         };
       };
+
       homeConfigurations = {
         ben = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs share; };
+          extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./profiles/ben ];
         };
         dev = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs share; };
+          extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./profiles/dev ];
         };
       };

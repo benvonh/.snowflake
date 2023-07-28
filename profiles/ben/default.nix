@@ -1,36 +1,17 @@
-{ inputs, outputs, lib, config, pkgs, flakePath, ... }@args:
+{ inputs, outputs, lib, config, pkgs, ... }@args:
 let
-  user = "ben";
-  homePath = "/home/${user}";
-  sharePath = nix: flakePath homePath nix;
+  share = nix: "${./.}/profiles/share/${nix}";
 in
 {
   imports = [
-    (import ../share/apps     (args // { inherit sharePath; }))
-    (import ../share/assets   (args // { inherit sharePath; }))
-    (import ../share/avizo    (args // { inherit sharePath; }))
-    (import ../share/common   (args // { inherit sharePath; }))
-    (import ../share/eww      (args // { inherit sharePath; }))
-    (import ../share/git      (args // { inherit sharePath; }))
-    (import ../share/gtk      (args // { inherit sharePath homePath; }))
-    (import ../share/hypr     (args // { inherit sharePath; }))
-    (import ../share/kitty    (args // { inherit sharePath; }))
-    (import ../share/mako     (args // { inherit sharePath; }))
-    (import ../share/nvim     (args // { inherit sharePath; }))
-    (import ../share/ranger   (args // { inherit sharePath; }))
-    (import ../share/rice     (args // { inherit sharePath; }))
-    (import ../share/swayidle (args // { inherit sharePath; }))
-    (import ../share/swaylock (args // { inherit sharePath; }))
-    (import ../share/terminal (args // { inherit sharePath; }))
-    (import ../share/vscode   (args // { inherit sharePath; }))
-    (import ../share/waybar   (args // { inherit sharePath; }))
-    (import ../share/wofi     (args // { inherit sharePath; }))
-    (import ../share/zsh      (args // { inherit sharePath; }))
+    (import ../share/assets    (args // { inherit share; }))
+    (import ../share/common    (args // { inherit share; }))
+    (import ../share/graphical (args // { inherit share; }))
+    (import ../share/hyprland  (args // { inherit share; }))
+    (import ../share/terminal  (args // { inherit share; }))
+    (import ../share/theme     (args // { inherit share; }))
   ];
 
-  home = {
-    username = user;
-    homeDirectory = homePath;
-    stateVersion = "23.05";
-  };
+  home.username = "ben";
+  home.homeDirectory = "/home/ben";
 }

@@ -1,12 +1,12 @@
-# .snow
+# snow
 Nix flake configurations for NixOS and Home Manager.
 
 Features
 ---
 - `Hyprland` - Wayland compositor
 - `Neovim` - terminal IDE
-- `ZSH` - with powerlevel10k
-- `EWW` - fancy widgets
+- `Zsh` - with powerlevel10k
+- `Eww` - fancy widgets
 
 Configurations
 ---
@@ -33,21 +33,21 @@ cd ~/.snow
 nix-shell
 ```
 
-2. Create new NixOS and Home Manager configurations. Otherwise, skip to next step.
+2. If you would like, create new NixOS and Home Manager configurations. Otherwise, skip to next step.
 ```sh
 cp -rv ~/.snow/systems/zeph ~/.snow/systems/$HOSTNAME
 cp -rv ~/.snow/profiles/ben ~/.snow/systems/$USER
 nixos-generate-config --show-hardware-config > ~/.snow/systems/$HOSTNAME/hardware.nix
 ```
 
-3. Read and edit flake repository as prefered. Main files of interest:
+3. Read and edit the flake. Main files of interest are:
 - `flake.nix`
 - `systems/$HOSTNAME/default.nix`
 - `systems/$HOSTNAME/share/**`
 - `profiles/$USER/default.nix`
 - `profiles/$USER/share/**`
 
-3. Switch NixOS and Home Manager configurations.
+3. Switch to your NixOS and Home Manager configurations.
 ```sh
 sudo nixos-rebuild switch --flake ~/.snow
 home-manager switch --flake ~/.snow
