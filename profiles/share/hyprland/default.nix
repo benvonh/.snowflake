@@ -5,12 +5,21 @@ let
 in
 {
   home.packages = with pkgs; [
+    # Services
     eww-wayland
     wofi
     mako
     avizo
     swayidle
     swaylock-effects
+
+    # Utilities
+    sox
+    pamixer
+    libnotify
+    xdg-utils
+    wlr-randr
+    wl-clipboard
   ];
 
   xdg.configFile = {
@@ -22,6 +31,4 @@ in
     swayidle.source = wrap "swayidle";
     swaylock.source = wrap "swaylock";
   };
-
-  programs.zsh.profileExtra = "[[ $(tty) == /dev/tty1 ]] && exec Hyprland";
 }

@@ -1,48 +1,48 @@
 max-history=5
-sort=+priority
+sort=-time
 
-on-button-left=dismiss
+on-button-left=invoke-default-action
 on-button-middle=none
-on-button-right=dismiss-group
-on-touch=none
-on-notify=exec play -q ~/.local/audio/mixkit-notify-retro.wav
+on-button-right=dismiss
+on-touch=dismiss
+on-notify=exec play -q ~/.local/share/audio/mixkit-notify-retro.wav
 
-font=FiraCode Nerd Font 12
-background-color=#2E3440
-text-color=#8FBCBB
+font=FiraCode Nerd Font 11
+background-color=#282828
+text-color=#ebdbb2
 width=300
 height=100
 outer-margin=8
 margin=8
 padding=4
-border-size=2
-border-color=#4C566A
-border-radius=8
-progress-color=over #8FBCBB
+border-size=1
+border-color=#282828
+border-radius=9
+progress-color=over #ebdbb2
 
 icons=1
 max-icon-size=64
-#icon-path=
+icon-path=/home/ben/.nix-profile/share/icons/Numix-Circle
 icon-location=left
 markup=1
 actions=1
 history=1
-#format=
+format=<b>%s</b>\n%b
 text-alignment=left
 default-timeout=5000
 ignore-timeout=0
-#group-by=
+group-by=none
 max-visible=5
-#output=
+output=""
 layer=overlay
-anchor=bottom-center
+anchor=top-right
 
 [urgency=low]
-border-color=#A3BE8C
+border-color=#98971a
 
 [urgency=normal]
-border-color=#EBCB8B
+border-color=#98971a
 
 [urgency=high]
-border-color=#BF616A
+border-color=#cc241d
 default-timeout=0

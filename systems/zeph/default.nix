@@ -4,12 +4,11 @@
     ./hardware.nix
 
     inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-pc-laptop
     inputs.hardware.nixosModules.common-gpu-amd
+    inputs.hardware.nixosModules.common-pc-laptop
     inputs.hardware.nixosModules.common-pc-laptop-ssd
 
     ../share/common
-    ../share/fonts
     ../share/hyprland
   ];
 
@@ -52,6 +51,15 @@
       "libvirtd"
     ];
   };
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    (nerdfonts.override {
+      fonts = [ "FiraCode" ];
+    })
+  ];
 
   virtualisation = {
     libvirtd.enable = true;

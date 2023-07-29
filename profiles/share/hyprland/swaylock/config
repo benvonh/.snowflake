@@ -1,41 +1,43 @@
+ignore-empty-password
+show-failed-attempts
+daemonize
+fade-in=1
+grace=1
+
 clock
 timestr=LOCKED
-datestr=%T
+datestr=%H:%m
 screenshots
 
-bs-hl-color=5E81AC
-key-hl-color=8FBCBB
-
-font=FiraCode monospace
+font=FiraCode Nerd Font
 font-size=24
 
-fade-in=1
+line-uses-ring
 
+bs-hl-color=689d6a
+key-hl-color=689d6a
+separator-color=689d6a
+
+indicator
 indicator-idle-visible
 indicator-radius=128
 indicator-thickness=4
 
-inside-color=2E3440
-inside-clear-color=2E3440
-inside-ver-color=2E3440
-inside-wrong-color=2E3440
+inside-color=282828
+inside-clear-color=282828
+inside-ver-color=282828
+inside-wrong-color=282828
 
-line-color=4C566A
-line-clear-color=5E81AC
-line-ver-color=EBCB8B
-line-wrong-color=BF616A
+ring-color=3c3836
+ring-clear-color=a89984
+ring-ver-color=98971a
+ring-wrong-color=cc241d
 
-ring-color=4C566A
-ring-clear-color=5E81AC
-ring-ver-color=EBCB8B
-ring-wrong-color=BF616A
+text-color=ebdbb2
+text-clear-color=ebdbb2
+text-ver-color=ebdbb2
+text-wrong-color=ebdbb2
 
-separator-color=4C566A
-text-color=8FBCBB
-text-clear-color=8FBCBB
-text-ver-color=8FBCBB
-text-wrong-color=8FBCBB
-
-effect-blur=7x5
+effect-blur=7x7
 effect-pixelate=9
 effect-vignette=0.5:0.5

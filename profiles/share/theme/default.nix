@@ -5,7 +5,7 @@
     font = {
       package = dejavu_fonts;
       name = "DejaVu Sans";
-      size = 10;
+      size = 11;
     };
     theme = {
       package = orchis-theme;
@@ -16,8 +16,6 @@
       name = "Numix-Circle";
     };
     cursorTheme = {
-      # package = vimix-cursors;
-      # name = "dist-white";
       package = graphite-cursors;
       name = "graphite-light";
       size = 24;

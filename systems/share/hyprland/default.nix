@@ -4,10 +4,22 @@
     inputs.hyprland.nixosModules.default
   ];
 
+  environment.systemPackages = [
+    pkgs.sddm-chili-theme
+  ];
+
   programs.hyprland.enable = true;
 
   sound.enable = false;
   hardware.pulseaudio.enable = false;
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm = {
+      enable = true;
+      theme = "chili";
+    };
+  };
 
   services.pipewire = {
     enable = true;

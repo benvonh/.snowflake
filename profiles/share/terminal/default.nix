@@ -5,23 +5,24 @@ let
 in
 {
   home.packages = with pkgs; [
-    #evince            # PDF thumbnail
-    #exiftool          # Image metadata
+    neovim            # Code editor
+    ranger            # File manager
+
     fd                # Better find
-    #ffmpegthumbnailer # Image thumbnail
     jq                # Json parser
-    nmap              # Network mapper
+    nmap              # Network tool
     rclone            # Cloud sync
     ripgrep           # Better grep
     shotman           # Screenshot
     socat             # Cat for socket
     tldr              # Better help
-    trash-cli         # Trash system
     unzip             # Unzip tool
-    neofetch
-    tty-clock pipes-rs cava
-    ranger
-    neovim
+
+    neofetch          # System info
+    tty-clock         # Cool clock
+    pipes-rs          # Pipes
+    cava              # Audio visualiser
+
     clang-tools
     cmake-language-server
     pyright
