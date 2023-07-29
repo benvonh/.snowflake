@@ -59,7 +59,7 @@
       "terminal.integrated.fontFamily" = "FiraCode Nerd Font";
       "terminal.integrated.cursorBlinking" = true;
       "workbench.iconTheme" = "vscode-icons";
-      "workbench.colorTheme" = "Kanagawa";
+      "workbench.colorTheme" = "Gruvbox Dark Medium";
       "workbench.startupEditor" = "none";
       "window.menuBarVisibility" = "toggle";
     };

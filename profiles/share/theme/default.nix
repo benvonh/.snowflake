@@ -8,8 +8,8 @@
       size = 11;
     };
     theme = {
-      package = orchis-theme;
-      name = "Orchis-Dark";
+      package = gruvbox-gtk-theme;
+      name = "Gruvbox-Dark-BL-LB";
     };
     iconTheme = {
       package = numix-icon-theme-circle;
