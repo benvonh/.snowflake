@@ -104,6 +104,7 @@ in
       gp = "git push";
       gc = "git commit";
       gs = "git status";
+      nd = "nix develop";
       hms = "home-manager switch --flake ~/.snow";
       nrs = "sudo nixos-rebuild switch --flake ~/.snow";
       nsz = "nix-shell --run zsh";

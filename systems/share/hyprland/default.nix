@@ -5,6 +5,7 @@
   ];
 
   environment.systemPackages = [
+    pkgs.graphite-cursors
     pkgs.sddm-chili-theme
   ];
 
@@ -15,9 +16,19 @@
 
   services.xserver = {
     enable = true;
+    displayManager.sessionCommands = ''
+      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+      Xft.dpi: 100
+      EOF
+    '';
     displayManager.sddm = {
       enable = true;
       theme = "chili";
+      settings = {
+        Theme = {
+          CursorTheme = "graphite-light";
+        };
+      };
     };
   };
 

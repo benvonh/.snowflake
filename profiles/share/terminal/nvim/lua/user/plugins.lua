@@ -56,6 +56,11 @@ return packer.startup(function(use)
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
     use { 'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
 
+    -- terminal
+    use {
+        'akinsho/toggleterm.nvim', tag = '*'
+    }
+
     -- tree sitter
     use {
         'nvim-treesitter/nvim-treesitter',

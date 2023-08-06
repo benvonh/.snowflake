@@ -9,7 +9,7 @@
     };
     theme = {
       package = gruvbox-gtk-theme;
-      name = "Gruvbox-Dark-BL-LB";
+      name = "Gruvbox-Dark-BL";
     };
     iconTheme = {
       package = numix-icon-theme-circle;

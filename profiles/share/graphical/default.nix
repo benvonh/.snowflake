@@ -4,6 +4,7 @@
     vlc
     brave
     discord
+    easyeffects
     gnome.nautilus
     gnome.gnome-calculator
     gnome.gnome-disk-utility

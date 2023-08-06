@@ -22,9 +22,9 @@ opt.hlsearch = false
 opt.incsearch = true
 
 -- tabs
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.smarttab = true
 opt.expandtab = true
 
@@ -39,10 +39,10 @@ opt.swapfile = false
 opt.undofile = true
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 
--- c/c++ override
-vim.cmd [[
-  autocmd FileType c,cpp setlocal tabstop=2 shiftwidth=2
-]]
+-- C/C++ override tab size
+-- vim.cmd [[
+--   autocmd FileType c,cpp setlocal tabstop=2 shiftwidth=2
+-- ]]
 
 -- others
 opt.timeoutlen = 500

@@ -5,7 +5,7 @@ on-button-left=invoke-default-action
 on-button-middle=none
 on-button-right=dismiss
 on-touch=dismiss
-on-notify=exec play -q ~/.local/share/audio/mixkit-notify-retro.wav
+on-notify=exec play -q ~/.local/share/audio/pixbay-notify-round.mp3
 
 font=FiraCode Nerd Font 11
 background-color=#282828
@@ -15,7 +15,7 @@ height=100
 outer-margin=8
 margin=8
 padding=4
-border-size=1
+border-size=2
 border-color=#282828
 border-radius=9
 progress-color=over #ebdbb2
@@ -29,7 +29,7 @@ actions=1
 history=1
 format=<b>%s</b>\n%b
 text-alignment=left
-default-timeout=5000
+default-timeout=1000
 ignore-timeout=0
 group-by=none
 max-visible=5
@@ -39,10 +39,12 @@ anchor=top-right
 
 [urgency=low]
 border-color=#98971a
+default-timeout=3000
 
 [urgency=normal]
 border-color=#98971a
+default-timeout=5000
 
 [urgency=high]
 border-color=#cc241d
-default-timeout=0
+default-timeout=10000
