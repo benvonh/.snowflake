@@ -5,15 +5,13 @@ let
 in
 {
   home.packages = with pkgs; [
-    # Services
-    wofi
+    # Components
     mako
     avizo
     swayidle
     eww-wayland
     rofi-wayland
     swaylock-effects
-    # inputs.hyprland-plugins.packages.${system}.hyprbars
 
     # Utilities
     sox
@@ -26,7 +24,6 @@ in
 
   xdg.configFile = {
     eww.source = wrap "eww";
-    wofi.source = wrap "wofi";
     rofi.source = wrap "rofi";
     hypr.source = wrap "hypr";
     mako.source = wrap "mako";
