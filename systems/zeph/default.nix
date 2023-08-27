@@ -3,25 +3,18 @@
   imports = [
     ./hardware.nix
 
-    inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-gpu-amd
-    inputs.hardware.nixosModules.common-pc-laptop
-    inputs.hardware.nixosModules.common-pc-laptop-ssd
-
     ../share/common
     ../share/hyprland
+
+    inputs.hardware.nixosModules.asus-zephyrus-ga402
   ];
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.systemd-boot.configurationLimit = 3;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = [ "amdgpu" ];
-    kernelParams = [
-      "pcie_aspm.policy=powersupersave"
-      "acpi.prefer_microsoft_dsm_guid=1"
-    ];
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 3;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   services = {
@@ -40,6 +33,7 @@
   };
 
   programs.zsh.enable = true;
+
   users.users.ben = {
     shell = pkgs.zsh;
     isNormalUser = true;
@@ -66,9 +60,9 @@
     spiceUSBRedirection.enable = true;
   };
 
-  environment.systemPackages = [
-    pkgs.iptables
-    pkgs.spice-gtk
-    pkgs.virt-manager
+  environment.systemPackages = with pkgs; [
+    iptables
+    spice-gtk
+    virt-manager
   ];
 }

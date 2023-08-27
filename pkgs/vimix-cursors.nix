@@ -8,8 +8,8 @@ stdenv.mkDerivation rec {
   version = "2020-02-09";
 
   src = fetchFromGitHub {
-    owner = "vinceliuice";
     repo = "Vimix-cursors";
+    owner = "vinceliuice";
     rev = "9bc292f40904e0a33780eda5c5d92eb9a1154e9c";
     sha256 = "sha256-zW7nJjmB3e+tjEwgiCrdEe5yzJuGBNdefDdyWvgYIUU=";
   };
@@ -20,8 +20,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/icons
-    cp -r dist*/ $out/share/icons
-    rm -r *
+    mv dist-white $out/share/icons/
   '';
 
   meta = with lib; {

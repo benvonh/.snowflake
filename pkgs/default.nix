@@ -1,5 +1,5 @@
 { pkgs ? (import ../nixpkgs.nix) { } }:
 {
-  mpvpaper = pkgs.callPackage ./mpvpaper.nix { };
   vimix-cursors = pkgs.callPackage ./vimix-cursors.nix { };
+  sddm-astronaut-theme = pkgs.libsForQt5.callPackage ./sddm-astronaut-theme.nix { };
 }

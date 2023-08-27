@@ -3,22 +3,27 @@
   gtk = with pkgs; {
     enable = true;
     font = {
-      package = dejavu_fonts;
       name = "DejaVu Sans";
+      package = dejavu_fonts;
       size = 11;
     };
     theme = {
-      package = gruvbox-gtk-theme;
       name = "Gruvbox-Dark-BL";
+      package = gruvbox-gtk-theme;
     };
     iconTheme = {
-      package = numix-icon-theme-circle;
       name = "Numix-Circle";
+      package = numix-icon-theme-circle;
     };
     cursorTheme = {
-      package = graphite-cursors;
-      name = "graphite-light";
+      name = "dist-white";
+      package = vimix-cursors;
       size = 24;
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
   };
 }

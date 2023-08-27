@@ -10,7 +10,6 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     hyprland.url = "github:hyprwm/hyprland";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

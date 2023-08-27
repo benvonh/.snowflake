@@ -6,20 +6,21 @@ in
 {
   home.packages = with pkgs; [
     # Components
-    mako
     avizo
-    swayidle
     eww-wayland
+    mako
+    mpvpaper
     rofi-wayland
+    swayidle
     swaylock-effects
 
     # Utilities
-    sox
-    pamixer
     libnotify
-    xdg-utils
+    pamixer
+    sox
     wlr-randr
     wl-clipboard
+    xdg-utils
   ];
 
   xdg.configFile = {

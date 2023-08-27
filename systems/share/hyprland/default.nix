@@ -4,9 +4,9 @@
     inputs.hyprland.nixosModules.default
   ];
 
-  environment.systemPackages = [
-    pkgs.graphite-cursors
-    pkgs.sddm-chili-theme
+  environment.systemPackages = with pkgs; [
+    vimix-cursors
+    sddm-astronaut-theme
   ];
 
   programs.hyprland.enable = true;
@@ -16,17 +16,12 @@
 
   services.xserver = {
     enable = true;
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
-      Xft.dpi: 100
-      EOF
-    '';
     displayManager.sddm = {
       enable = true;
-      theme = "chili";
+      theme = "astronaut";
       settings = {
         Theme = {
-          CursorTheme = "graphite-light";
+          CursorTheme = "dist-white";
         };
       };
     };
@@ -41,8 +36,8 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
     ];
   };
 
