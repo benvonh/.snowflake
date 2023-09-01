@@ -41,8 +41,8 @@
       "tty"
       "wheel"
       "dialout"
-      "networkmanager"
       "libvirtd"
+      "networkmanager"
     ];
   };
 
