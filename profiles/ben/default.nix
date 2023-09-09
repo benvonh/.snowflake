@@ -2,7 +2,7 @@
 let
   user = "ben";
   userPath = "/home/${user}";
-  sharePath = nix: "${userPath}/.snow/profiles/share/${nix}";
+  sharePath = nix: "${userPath}/.snowflake/profiles/share/${nix}";
 in
 {
   imports = [

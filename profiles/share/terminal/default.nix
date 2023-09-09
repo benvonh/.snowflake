@@ -105,8 +105,8 @@ in
       gc = "git commit";
       gs = "git status";
       nd = "nix develop";
-      hms = "home-manager switch --flake ~/.snow";
-      nrs = "sudo nixos-rebuild switch --flake ~/.snow";
+      hms = "home-manager switch --flake ~/.snowflake";
+      nrs = "sudo nixos-rebuild switch --flake ~/.snowflake";
       nsz = "nix-shell --run zsh";
     };
     zplug = {
