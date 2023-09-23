@@ -13,48 +13,48 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-    in
-    rec {
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
-      );
+  let
+    inherit (self) outputs;
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+  in
+  rec {
+    packages = forAllSystems (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in import ./pkgs { inherit pkgs; }
+    );
 
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
+    devShells = forAllSystems (system:
+      let pkgs = nixpkgs.legacyPackages.${system};
+      in import ./shell.nix { inherit pkgs; }
+    );
 
-      overlays = import ./overlays { inherit inputs; };
+    overlays = import ./overlays { inherit inputs; };
 
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home;
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home;
 
-      nixosConfigurations = {
-        zeph = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ ./systems/zeph ];
-        };
-      };
-
-      homeConfigurations = {
-        ben = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./profiles/ben ];
-        };
-        dev = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./profiles/dev ];
-        };
+    nixosConfigurations = {
+      zeph = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./systems/zeph ];
       };
     };
+
+    homeConfigurations = {
+      ben = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [ ./profiles/ben ];
+      };
+      dev = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [ ./profiles/dev ];
+      };
+    };
+  };
 }
