@@ -37,7 +37,7 @@ opt.smartindent = true
 opt.backup = false
 opt.swapfile = false
 opt.undofile = true
-opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+opt.undodir = os.getenv('HOME') .. '/.cache/nvim/undodir'
 
 -- C/C++ override tab size
 -- vim.cmd [[

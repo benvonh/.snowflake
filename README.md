@@ -1,4 +1,4 @@
-# snow
+# .snowflake
 Nix flake configurations for NixOS and Home Manager.
 
 Features
@@ -21,23 +21,23 @@ Online Install
 ---
 1. If Nix and Home Manager is installed and flakes are enabled, you can install a profile directly from GitHub.
 ```sh
-home-manager switch --flake github:benvonh/.snow#<profile>
+home-manager switch --flake github:benvonh/.snowflake#<profile>
 ```
 
 Local Install
 ---
 1. Clone and enter the Nix environment.
 ```sh
-git clone https://github.com/benvonh/.snow ~/.snow
-cd ~/.snow
+git clone https://github.com/benvonh/.snowflake
+cd ~/.snowflake
 nix-shell
 ```
 
 2. If you would like, create new NixOS and Home Manager configurations. Otherwise, skip to next step.
 ```sh
-cp -rv ~/.snow/systems/zeph ~/.snow/systems/$HOSTNAME
-cp -rv ~/.snow/profiles/ben ~/.snow/systems/$USER
-nixos-generate-config --show-hardware-config > ~/.snow/systems/$HOSTNAME/hardware.nix
+cp -rv ~/.snowflake/systems/zeph ~/.snowflake/systems/$HOSTNAME
+cp -rv ~/.snowflake/profiles/ben ~/.snowflake/systems/$USER
+nixos-generate-config --show-hardware-config > ~/.snowflake/systems/$HOSTNAME/hardware.nix
 ```
 
 3. Read and edit the flake. Main files of interest are:
@@ -49,8 +49,8 @@ nixos-generate-config --show-hardware-config > ~/.snow/systems/$HOSTNAME/hardwar
 
 3. Switch to your NixOS and Home Manager configurations.
 ```sh
-sudo nixos-rebuild switch --flake ~/.snow
-home-manager switch --flake ~/.snow
+sudo nixos-rebuild switch --flake ~/.snowflake
+home-manager switch --flake ~/.snowflake
 ```
 
 Thanks To...
