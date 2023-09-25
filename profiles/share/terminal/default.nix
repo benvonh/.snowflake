@@ -55,12 +55,14 @@ in
 
   programs.git = {
     enable = true;
-    userName = "benvonh";
-    userEmail = "benjaminvonsnarski@gmail.com";
+    package = pkgs.gitFull;
+    userName = "benjamin.snarski";
+    userEmail = "benjamin.snarski@zeiss.com";
+    extraConfig.credential.helper = "store";
   };
 
   programs.gh = {
-    enable = true;
+    enable = false;
     settings = {
       editor = "nvim";
       prompt = "enabled";

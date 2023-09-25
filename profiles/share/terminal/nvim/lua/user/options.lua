@@ -43,6 +43,9 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 -- vim.cmd [[
 --   autocmd FileType c,cpp setlocal tabstop=2 shiftwidth=2
 -- ]]
+vim.cmd [[
+  autocmd FileType xml setlocal tabstop=4 shiftwidth=4
+]]
 
 -- others
 opt.timeoutlen = 500

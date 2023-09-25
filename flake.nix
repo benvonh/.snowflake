@@ -55,6 +55,11 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./profiles/dev ];
         };
+        zobsnars = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./profiles/zobsnars ];
+        };
       };
     };
 }
