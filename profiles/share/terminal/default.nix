@@ -56,13 +56,13 @@ in
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    userName = "benjamin.snarski";
-    userEmail = "benjamin.snarski@zeiss.com";
+    userName = "benvonh";
+    userEmail = "benjaminvonsnarski@gmail.com";
     extraConfig.credential.helper = "store";
   };
 
   programs.gh = {
-    enable = false;
+    enable = true;
     settings = {
       editor = "nvim";
       prompt = "enabled";
@@ -106,6 +106,7 @@ in
       gp = "git push";
       gc = "git commit";
       gs = "git status";
+      nb = "nix build";
       nd = "nix develop";
       hms = "home-manager switch --flake ~/.snowflake";
       nrs = "sudo nixos-rebuild switch --flake ~/.snowflake";
