@@ -2,13 +2,13 @@
 {
   home.packages = with pkgs; [
     vlc
-    brave
-    discord
-    mission-center
-    gnome.nautilus
-    gnome.gnome-calculator
-    gnome.gnome-disk-utility
-    gnome.gnome-system-monitor
+    # brave
+    # discord
+    # mission-center
+    # gnome.nautilus
+    # gnome.gnome-calculator
+    # gnome.gnome-disk-utility
+    # gnome.gnome-system-monitor
   ];
 
   programs.kitty = {

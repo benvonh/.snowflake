@@ -55,6 +55,7 @@ return packer.startup(function(use)
     use { 'navarasu/onedark.nvim', as = 'onedark' }
     use { 'rebelot/kanagawa.nvim', as = 'kanagawa' }
     use { 'ellisonleao/gruvbox.nvim', as = 'gruvbox' }
+    use { 'projekt0n/github-nvim-theme', as = 'github' }
 
     -- terminal
     use {
@@ -101,14 +102,16 @@ return packer.startup(function(use)
     -- lsp + cmp
     use { 'VonHeikemen/lsp-zero.nvim',
         requires = {
+            { 'onsails/lspkind.nvim' },
             { 'neovim/nvim-lspconfig' },
             -- completion
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-cmdline' },
-            { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lsp-signature-help' },
             -- snippets
             { 'L3MON4D3/LuaSnip' },
             { 'saadparwaiz1/cmp_luasnip' },

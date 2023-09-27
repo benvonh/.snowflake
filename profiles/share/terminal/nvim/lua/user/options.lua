@@ -44,7 +44,7 @@ opt.undodir = os.getenv('HOME') .. '/.cache/nvim/undodir'
 --   autocmd FileType c,cpp setlocal tabstop=2 shiftwidth=2
 -- ]]
 vim.cmd [[
-  autocmd FileType xml setlocal tabstop=4 shiftwidth=4
+  autocmd FileType xml,lua setlocal tabstop=4 shiftwidth=4
 ]]
 
 -- others

@@ -40,6 +40,7 @@ in
 
   programs.exa = {
     enable = true;
+    package = pkgs.eza;
     enableAliases = true;
     icons = true;
     git = true;
